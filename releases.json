@@ -1,0 +1,27 @@
+{
+  "component": "xagent",
+  "name": "xAgent Server",
+  "release_tag_pattern": "v*",
+  "latest": null,
+  "releases_url": "https://github.com/coffeehc/xagent-releases/releases",
+  "asset_name_pattern": "xagent-{version}-{os}-{arch}.tar.gz",
+  "connector_releases": "https://github.com/coffeehc/xagent-connectors/releases",
+  "supported_targets": [
+    {
+      "os": "linux",
+      "arch": "amd64"
+    },
+    {
+      "os": "linux",
+      "arch": "arm64"
+    },
+    {
+      "os": "darwin",
+      "arch": "amd64"
+    },
+    {
+      "os": "darwin",
+      "arch": "arm64"
+    }
+  ]
+}
