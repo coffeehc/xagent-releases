@@ -8,6 +8,20 @@ It is a public binary distribution repository. Source code for the released
 components may be maintained in separate repositories and is not published here
 unless explicitly stated in a specific release.
 
+Documentation:
+
+<https://xagent.xiagaogao.com>
+
+## What Is xAgent
+
+xAgent is a server-side multi-user agent work portal built for task completion. Teams can prepare models, skills, tools, connectors, approval policies, and workspace boundaries in one system, then let users access dedicated agents through the Web UI or IM connectors.
+
+It is not a CLI project and not just a chatbot. xAgent focuses on long-running work: understanding goals, reading files, calling tools, producing artifacts, and keeping task files inside user-isolated server workspaces.
+
+The current release is a beta binary distribution. It is suitable for deployment trials, workflow evaluation, and early feedback. Free binary distribution does not mean the corresponding source code is open source.
+
+![xAgent agent session](assets/xagent-agent-session.png)
+
 ## What Is Published Here
 
 Release artifacts may include:
