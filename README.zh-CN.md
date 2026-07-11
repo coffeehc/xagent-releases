@@ -8,7 +8,10 @@
 
 使用文档：
 
-<https://xagent.xiagaogao.com>
+- [xAgent 使用手册](https://xagent.xiagaogao.com)
+- [服务端安装](https://xagent.xiagaogao.com/docs/deployment/server-install/)
+- [如何私有化部署 AI Agent](https://xagent.xiagaogao.com/docs/guides/self-hosted-ai-agent/)
+- [MCP 与连接器有什么区别](https://xagent.xiagaogao.com/docs/guides/mcp-vs-connector/)
 
 ## 什么是 xAgent
 

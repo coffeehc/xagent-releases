@@ -10,7 +10,10 @@ unless explicitly stated in a specific release.
 
 Documentation:
 
-<https://xagent.xiagaogao.com>
+- [xAgent Documentation](https://xagent.xiagaogao.com)
+- [Server Installation](https://xagent.xiagaogao.com/docs/deployment/server-install/)
+- [How to Self-host an AI Agent](https://xagent.xiagaogao.com/docs/guides/self-hosted-ai-agent/)
+- [MCP vs. Connectors](https://xagent.xiagaogao.com/docs/guides/mcp-vs-connector/)
 
 ## What Is xAgent
 
