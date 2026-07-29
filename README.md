@@ -2,108 +2,119 @@
 
 [简体中文](README.zh-CN.md)
 
-This repository publishes xAgent Server release artifacts.
+This repository distributes official xAgent Server binary releases. It contains
+release artifacts, checksums, metadata, and licensing documents, but no xAgent
+source code.
 
-It is a public binary distribution repository. Source code for the released
-components may be maintained in separate repositories and is not published here
-unless explicitly stated in a specific release.
+Current release: [xAgent v0.0.5.beta](https://github.com/coffeehc/xagent-releases/releases/tag/v0.0.5.beta)
 
 Documentation:
 
-- [xAgent Documentation](https://xagent.xiagaogao.com)
-- [Server Installation](https://xagent.xiagaogao.com/docs/deployment/server-install/)
-- [How to Self-host an AI Agent](https://xagent.xiagaogao.com/docs/guides/self-hosted-ai-agent/)
-- [MCP vs. Connectors](https://xagent.xiagaogao.com/docs/guides/mcp-vs-connector/)
+- [xAgent Documentation](https://xagent.xiagaogao.com/en/)
+- [Start Installing xAgent](https://xagent.xiagaogao.com/en/docs/getting-started/install/)
+- [xAgent Product Overview](https://xagent.xiagaogao.com/en/docs/getting-started/what-is-xagent/)
+- [What Is a Connector?](https://xagent.xiagaogao.com/en/docs/getting-started/what-is-connector/)
 
-## What Is xAgent
+## What Is xAgent?
 
-xAgent is a server-side multi-user agent work portal built for task completion. Teams can prepare models, skills, tools, connectors, approval policies, and workspace boundaries in one system, then let users access dedicated agents through the Web UI or IM connectors.
+xAgent is the unified AI work platform for the enterprise. Deploy it on your own
+servers, connect existing systems quickly, centralize access and cost controls,
+and audit every action. Employees can get work done with AI from the Web or a
+mobile device, giving enterprises control and employees an effortless
+experience.
 
-It is not a CLI project and not just a chatbot. xAgent focuses on long-running work: understanding goals, reading files, calling tools, producing artifacts, and keeping task files inside user-isolated server workspaces.
+xAgent acts as both an AI portal for employees and an AI foundation for the
+organization. It can understand goals, work with documents, analyze data,
+create deliverables, call approved tools, and continue work across connected
+systems. Existing system accounts and permissions remain the source of truth;
+xAgent does not grant users broader access.
 
-The current release is a beta binary distribution. It is suitable for deployment trials, workflow evaluation, and early feedback. Free binary distribution does not mean the corresponding source code is open source.
+![xAgent dashboard](assets/xagent-dashboard-en.webp)
 
-![xAgent agent session](assets/xagent-agent-session.png)
+## xAgent v0.0.5.beta
 
-## What Is Published Here
+This beta release focuses on:
 
-Release artifacts may include:
+- A redesigned console, clearer navigation, responsive Agent sessions, and
+  centralized usage visibility.
+- Connector protocol 3.0 with two-way messages, streaming updates, file
+  transfer, acknowledgements, and activity state.
+- ProcessSandbox boundaries for controlled commands and task runtime assets.
+- One installer for Linux and macOS, including checksum verification, upgrades,
+  versioned activation, and Linux rollback on failed startup.
 
-- xAgent Server binaries
-- xAgent packages with embedded Web UI
-- Deployment examples, checksums, and release notes
+The release supports:
 
-Connector binaries are published separately at:
+- Linux AMD64
+- Linux ARM64
+- macOS AMD64
+- macOS ARM64
 
-<https://github.com/coffeehc/xagent-connectors>
+See the [full changelog](https://xagent.xiagaogao.com/en/docs/changelog/) for
+user-facing changes and upgrade notes.
 
-Each release describes the exact target platforms and runtime requirements
-included in that version.
+## Install
 
-## Download
+Linux and macOS use the same installer:
 
-Download artifacts from the GitHub Releases page:
-
-<https://github.com/coffeehc/xagent-releases/releases>
-
-Typical release assets may look like:
-
-```text
-xagent-linux-amd64.tar.gz
-xagent-darwin-arm64.tar.gz
-SHA256SUMS
+```bash
+curl -fsSL https://downloads.xagent.xiagaogao.com/scripts/install.sh | bash
 ```
 
-File names and supported platforms may change by release. Always use the assets attached to the release version you intend to deploy.
+The installer detects the platform, downloads and verifies the matching
+package, installs or upgrades xAgent, and can optionally install supported
+Connectors. Debian Linux with systemd is recommended for long-running server
+deployments. Windows is not currently recommended because it cannot provide the
+same managed script sandbox boundary.
 
-## Verify Artifacts
+Before upgrading, back up the xAgent configuration, database, workspaces, and
+Connector state. See the [installation guide](https://xagent.xiagaogao.com/en/docs/getting-started/install/)
+for deployment requirements and first-time system setup.
 
-When a release provides `SHA256SUMS`, verify the downloaded file before installation:
+## Manual Download
+
+Release assets are available from [GitHub Releases](https://github.com/coffeehc/xagent-releases/releases).
+The `v0.0.5.beta` platform packages are:
+
+```text
+xagent-v0.0.5.beta-linux-amd64.tar.gz
+xagent-v0.0.5.beta-linux-arm64.tar.gz
+xagent-v0.0.5.beta-darwin-amd64.tar.gz
+xagent-v0.0.5.beta-darwin-arm64.tar.gz
+```
+
+The release also provides:
+
+- `SHA256SUMS`: checksums for archives and release documents.
+- `BINARY_SHA256SUMS`: checksums for the executable inside each archive.
+- `release.json`: machine-readable version and licensing metadata.
+- `LICENSE`, `EULA.md`, and `THIRD_PARTY_NOTICES.md`.
+
+Each archive contains the xAgent executable, README, release metadata, and
+licensing documents. It does not contain source code.
+
+## Verify Downloads
+
+Download the checksum files and release assets, then verify them before
+installation:
 
 ```bash
 shasum -a 256 -c SHA256SUMS
 ```
 
-On Linux, `sha256sum` can also be used when the checksum file format matches the release notes.
+Linux users can use `sha256sum -c SHA256SUMS`. If you download only one platform
+archive, compare its calculated SHA256 value with the matching line in
+`SHA256SUMS`.
 
-## Versioning
+## Source Code and Licensing
 
-Release tags use semantic-style version names:
+Artifacts in this repository are binary distributions. Publishing them here
+does not mean that the corresponding source code is open source. Use of the
+software is governed by the `LICENSE`, `EULA.md`, and third-party notices
+included with each release.
 
-```text
-vMAJOR.MINOR.PATCH
-```
+## Feedback and Security
 
-Examples:
-
-```text
-v1.0.0
-v1.1.0
-v1.1.1
-```
-
-Pre-release versions may use suffixes such as:
-
-```text
-v1.2.0-rc.1
-v1.2.0-beta.1
-```
-
-## Compatibility
-
-Compatibility is described per release. Before upgrading, review the release notes for:
-
-- supported operating systems and CPU architectures
-- required configuration changes
-- data migration notes
-- known breaking changes
-
-## Source Code And Licensing
-
-Artifacts in this repository are distributed as release binaries.
-
-Publishing a binary artifact here does not by itself mean that the corresponding source code is open source. If a component has a separate source repository, license, or open-source statement, that information will be stated in the relevant release notes or documentation.
-
-## Security
-
-Do not report security issues through public GitHub issues if the report contains sensitive details. Use the contact channel provided by the project maintainers or the release documentation.
+- [Share an idea or report a general issue](https://xagent.xiagaogao.com/en/docs/cooperation/idea/)
+- For security issues containing sensitive details, use the private contact
+  channel described in the documentation instead of a public GitHub issue.

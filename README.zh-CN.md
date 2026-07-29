@@ -2,105 +2,90 @@
 
 [English](README.md)
 
-本仓库用于发布 xAgent Server 二进制产物。
+本仓库用于发布 xAgent Server 官方二进制版本，仅包含发布包、校验文件、版本元数据和授权文件，不包含 xAgent 源代码。
 
-这是一个公开的发布仓库，主要承载 Release artifacts。相关组件的源码可能维护在其他仓库中，除非某个 Release 或文档明确说明，否则本仓库不代表源码开源。
+当前版本：[xAgent v0.0.5.beta](https://github.com/coffeehc/xagent-releases/releases/tag/v0.0.5.beta)
 
 使用文档：
 
-- [xAgent 使用手册](https://xagent.xiagaogao.com)
-- [服务端安装](https://xagent.xiagaogao.com/docs/deployment/server-install/)
-- [如何私有化部署 AI Agent](https://xagent.xiagaogao.com/docs/guides/self-hosted-ai-agent/)
-- [MCP 与连接器有什么区别](https://xagent.xiagaogao.com/docs/guides/mcp-vs-connector/)
+- [xAgent 使用手册](https://xagent.xiagaogao.com/)
+- [开始安装 xAgent](https://xagent.xiagaogao.com/docs/getting-started/install/)
+- [xAgent 产品介绍与核心能力](https://xagent.xiagaogao.com/docs/getting-started/what-is-xagent/)
+- [什么是连接器](https://xagent.xiagaogao.com/docs/getting-started/what-is-connector/)
 
 ## 什么是 xAgent
 
-xAgent 是面向任务完成的服务端多用户智能工作门户。团队可以在一套系统里准备模型、Skill、工具、连接器、审批策略和工作区边界，再让用户通过 Web 页面或 IM 连接器访问专用智能体。
+xAgent 是企业统一的 AI 工作平台。服务端部署，快速接入现有系统，权限与成本集中管控、操作全程审计；员工打开网页或手机，即可使用 AI 完成工作。实现企业可管、员工好用。
 
-它不是 CLI 项目，也不只是聊天机器人。xAgent 更关注长期任务执行：理解目标、读取文件、调用工具、生成交付物，并把任务文件保存在按用户隔离的服务端工作区中。
+xAgent 既是员工统一使用 AI 的入口，也是企业统一管理 AI 的基座。它可以理解目标、处理资料、分析数据、生成成果、调用经过授权的工具，并连接企业现有系统继续完成工作。外部系统原有的账号和权限仍然是访问依据，xAgent 不会凭空扩大用户权限。
 
-当前版本是测试版二进制发布，适合部署体验、流程验证和早期反馈。免费二进制发布不等同于对应源码已经开源。
+![xAgent 仪表板](assets/xagent-dashboard-zh.webp)
 
-![xAgent Agent 会话](assets/xagent-agent-session.png)
+## xAgent v0.0.5.beta
 
-## 发布内容
+本测试版重点更新：
 
-本仓库的 Release 可能包含：
+- 重新设计控制台、菜单和响应式 Agent 会话，并集中展示使用情况。
+- Connector 公共协议升级到 3.0，支持双向消息、流式增量、文件传输、消息确认和活动状态。
+- 通过 ProcessSandbox 统一控制命令执行和任务运行依赖的安全边界。
+- Linux 与 macOS 使用同一个安装器，支持校验、升级、版本化切换，以及 Linux 启动失败后的自动回滚。
 
-- xAgent Server 二进制文件
-- 内嵌 Web UI 的 xAgent 发布包
-- 部署示例、校验文件和版本说明
+支持的平台：
 
-Connector 二进制文件单独发布在：
+- Linux AMD64
+- Linux ARM64
+- macOS AMD64
+- macOS ARM64
 
-<https://github.com/coffeehc/xagent-connectors>
+完整功能变化和升级说明见[更新日志](https://xagent.xiagaogao.com/docs/changelog/)。
 
-每个 Release 会说明该版本包含的目标平台和运行要求。
+## 安装
 
-## 下载
+Linux 和 macOS 使用同一个安装命令：
 
-请从 GitHub Releases 页面下载：
-
-<https://github.com/coffeehc/xagent-releases/releases>
-
-常见产物名称示例：
-
-```text
-xagent-linux-amd64.tar.gz
-xagent-darwin-arm64.tar.gz
-SHA256SUMS
+```bash
+curl -fsSL https://downloads.xagent.xiagaogao.com/scripts/install.sh | bash
 ```
 
-不同版本的文件名和支持平台可能不同，请以对应 Release 页面中的附件为准。
+安装器会自动识别平台，下载并校验对应发布包，安装或升级 xAgent，并可选择安装支持的 Connector。长期运行的服务端部署建议使用 Debian Linux 和 systemd。Windows 当前无法提供与 Linux、macOS 同等的受控脚本沙箱边界，因此暂不建议作为部署环境。
 
-## 校验
+升级前请备份 xAgent 配置、数据库、工作区和 Connector 状态。部署要求和首次系统初始化流程见[开始安装 xAgent](https://xagent.xiagaogao.com/docs/getting-started/install/)。
 
-如果 Release 提供 `SHA256SUMS`，建议在安装前校验下载文件：
+## 手动下载
+
+发布文件可从 [GitHub Releases](https://github.com/coffeehc/xagent-releases/releases) 下载。`v0.0.5.beta` 提供以下平台包：
+
+```text
+xagent-v0.0.5.beta-linux-amd64.tar.gz
+xagent-v0.0.5.beta-linux-arm64.tar.gz
+xagent-v0.0.5.beta-darwin-amd64.tar.gz
+xagent-v0.0.5.beta-darwin-arm64.tar.gz
+```
+
+Release 同时提供：
+
+- `SHA256SUMS`：发布包和发布文件的校验值。
+- `BINARY_SHA256SUMS`：每个平台包内可执行文件的校验值。
+- `release.json`：可供程序读取的版本与授权元数据。
+- `LICENSE`、`EULA.md` 和 `THIRD_PARTY_NOTICES.md`。
+
+每个平台包只包含 xAgent 可执行文件、README、版本元数据和授权文件，不包含源代码。
+
+## 校验下载文件
+
+下载校验文件和 Release 附件后，在安装前执行：
 
 ```bash
 shasum -a 256 -c SHA256SUMS
 ```
 
-在 Linux 环境中，也可以根据 Release 中的校验文件格式使用 `sha256sum`。
-
-## 版本规则
-
-Release tag 使用语义化风格版本号：
-
-```text
-vMAJOR.MINOR.PATCH
-```
-
-示例：
-
-```text
-v1.0.0
-v1.1.0
-v1.1.1
-```
-
-预发布版本可以使用以下后缀：
-
-```text
-v1.2.0-rc.1
-v1.2.0-beta.1
-```
-
-## 兼容性
-
-兼容性以每个 Release 的说明为准。升级前请重点查看：
-
-- 支持的操作系统和 CPU 架构
-- 配置文件是否需要调整
-- 数据是否需要迁移
-- 已知的不兼容变更
+Linux 也可以使用 `sha256sum -c SHA256SUMS`。如果只下载一个平台包，请计算该文件的 SHA256，并与 `SHA256SUMS` 中对应的一行比较。
 
 ## 源码与授权
 
-本仓库发布的是二进制产物。
+本仓库发布的是二进制产物。在这里提供二进制文件，不代表对应源码已经开源。软件使用范围以每个 Release 中的 `LICENSE`、`EULA.md` 和第三方声明为准。
 
-在本仓库发布二进制文件，不等同于对应源码已经开源。如果某个组件存在单独的源码仓库、授权协议或开源说明，会在对应 Release 或相关文档中明确说明。
+## 反馈与安全问题
 
-## 安全反馈
-
-如果安全问题包含敏感细节，请不要通过公开 GitHub Issue 提交。请使用项目维护者提供的联系渠道，或参考对应 Release 文档中的安全反馈说明。
+- [提交想法或反馈普通问题](https://xagent.xiagaogao.com/docs/cooperation/idea/)
+- 如果安全问题包含敏感信息，请使用文档提供的私密联系方式，不要通过公开 GitHub Issue 提交。

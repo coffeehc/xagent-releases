@@ -2,10 +2,10 @@
   "component": "xagent",
   "name": "xAgent Server",
   "release_tag_pattern": "v*",
-  "latest": null,
+  "latest": "0.0.5.beta",
   "releases_url": "https://github.com/coffeehc/xagent-releases/releases",
-  "asset_name_pattern": "xagent-{version}-{os}-{arch}.tar.gz",
-  "connector_releases": "https://github.com/coffeehc/xagent-connectors/releases",
+  "asset_name_pattern": "xagent-v{version}-{os}-{arch}.tar.gz",
+  "connector_releases": "https://downloads.xagent.xiagaogao.com/versions.json",
   "supported_targets": [
     {
       "os": "linux",
