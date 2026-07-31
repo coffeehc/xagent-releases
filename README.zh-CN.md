@@ -4,7 +4,7 @@
 
 本仓库用于发布 xAgent Server 官方二进制版本，仅包含发布包、校验文件、版本元数据和授权文件，不包含 xAgent 源代码。
 
-当前版本：[xAgent v0.0.5.beta](https://github.com/coffeehc/xagent-releases/releases/tag/v0.0.5.beta)
+当前版本：[xAgent v0.0.6.beta](https://github.com/coffeehc/xagent-releases/releases/tag/v0.0.6.beta)
 
 使用文档：
 
@@ -21,14 +21,15 @@ xAgent 既是员工统一使用 AI 的入口，也是企业统一管理 AI 的�
 
 ![xAgent 仪表板](assets/xagent-dashboard-zh.webp)
 
-## xAgent v0.0.5.beta
+## xAgent v0.0.6.beta
 
 本测试版重点更新：
 
-- 重新设计控制台、菜单和响应式 Agent 会话，并集中展示使用情况。
-- Connector 公共协议升级到 3.0，支持双向消息、流式增量、文件传输、消息确认和活动状态。
-- 通过 ProcessSandbox 统一控制命令执行和任务运行依赖的安全边界。
-- Linux 与 macOS 使用同一个安装器，支持校验、升级、版本化切换，以及 Linux 启动失败后的自动回滚。
+- 统一附件接收与可读内容生成，保留 Word、HTML、PDF、表格和演示文稿的结构信息，并为长文档生成定位索引。
+- 完善 OpenAI、Anthropic 和 Gemini 模型配置兼容性与请求缓存稳定性。
+- 优化子会话初始化、能力装配和协作回复，减少重复执行与结果重复发送。
+- 新增 Word 模板与共享字体能力，并加强文档渲染验证。
+- 支持从控制台执行系统升级，启动健康检查失败时自动回滚。
 
 支持的平台：
 
@@ -53,13 +54,13 @@ curl -fsSL https://downloads.xagent.xiagaogao.com/scripts/install.sh | bash
 
 ## 手动下载
 
-发布文件可从 [GitHub Releases](https://github.com/coffeehc/xagent-releases/releases) 下载。`v0.0.5.beta` 提供以下平台包：
+发布文件可从 [GitHub Releases](https://github.com/coffeehc/xagent-releases/releases) 下载。`v0.0.6.beta` 提供以下平台包：
 
 ```text
-xagent-v0.0.5.beta-linux-amd64.tar.gz
-xagent-v0.0.5.beta-linux-arm64.tar.gz
-xagent-v0.0.5.beta-darwin-amd64.tar.gz
-xagent-v0.0.5.beta-darwin-arm64.tar.gz
+xagent-v0.0.6.beta-linux-amd64.tar.gz
+xagent-v0.0.6.beta-linux-arm64.tar.gz
+xagent-v0.0.6.beta-darwin-amd64.tar.gz
+xagent-v0.0.6.beta-darwin-arm64.tar.gz
 ```
 
 Release 同时提供：
