@@ -39,6 +39,8 @@ This beta release focuses on:
   local fallback, and automatic recovery.
 - An instance-wide shared directory with inherited read and read-write ACLs for
   users and groups.
+- ACL-filtered shared-file browsing, preview, and download from the user
+  workspace file tree.
 - Configurable OCR-derived text for image attachments, with capability-aware
   regeneration and structured-output validation.
 - More stable per-turn model context and normalized cache-token reporting for
