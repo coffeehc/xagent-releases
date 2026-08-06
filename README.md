@@ -6,7 +6,7 @@ This repository distributes official xAgent Server binary releases. It contains
 release artifacts, checksums, metadata, and licensing documents, but no xAgent
 source code.
 
-Current release: [xAgent v0.0.6.beta](https://github.com/coffeehc/xagent-releases/releases/tag/v0.0.6.beta)
+Current release: [xAgent v0.0.7.beta](https://github.com/coffeehc/xagent-releases/releases/tag/v0.0.7.beta)
 
 Documentation:
 
@@ -31,20 +31,20 @@ xAgent does not grant users broader access.
 
 ![xAgent dashboard](assets/xagent-dashboard-en.webp)
 
-## xAgent v0.0.6.beta
+## xAgent v0.0.7.beta
 
 This beta release focuses on:
 
-- Unified attachment intake and readable-content generation, preserving the
-  structure of Word, HTML, PDF, spreadsheet, and presentation files while
-  adding location indexes for long documents.
-- Improved OpenAI, Anthropic, and Gemini configuration compatibility and model
-  request cache stability.
-- Better sub-session initialization, capability assembly, and collaboration
-  replies without duplicate execution or repeated result delivery.
-- Word templates, shared document fonts, and stronger rendering validation.
-- Console-driven system upgrades with automatic rollback after failed health
-  checks.
+- Unified Local and S3 file storage with managed migration, integrity checks,
+  local fallback, and automatic recovery.
+- An instance-wide shared directory with inherited read and read-write ACLs for
+  users and groups.
+- Configurable OCR-derived text for image attachments, with capability-aware
+  regeneration and structured-output validation.
+- More stable per-turn model context and normalized cache-token reporting for
+  OpenAI, Anthropic, and Gemini.
+- The first Desktop Client release for macOS Apple Silicon and Windows AMD64,
+  including an update indicator and confirmation-based automatic updates.
 
 The release supports:
 
@@ -77,13 +77,13 @@ for deployment requirements and first-time system setup.
 ## Manual Download
 
 Release assets are available from [GitHub Releases](https://github.com/coffeehc/xagent-releases/releases).
-The `v0.0.6.beta` platform packages are:
+The `v0.0.7.beta` platform packages are:
 
 ```text
-xagent-v0.0.6.beta-linux-amd64.tar.gz
-xagent-v0.0.6.beta-linux-arm64.tar.gz
-xagent-v0.0.6.beta-darwin-amd64.tar.gz
-xagent-v0.0.6.beta-darwin-arm64.tar.gz
+xagent-v0.0.7.beta-linux-amd64.tar.gz
+xagent-v0.0.7.beta-linux-arm64.tar.gz
+xagent-v0.0.7.beta-darwin-amd64.tar.gz
+xagent-v0.0.7.beta-darwin-arm64.tar.gz
 ```
 
 The release also provides:
