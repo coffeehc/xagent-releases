@@ -31,6 +31,7 @@ xAgent 既是员工统一使用 AI 的入口，也是企业统一管理 AI 的�
 - 新增图片附件 OCR 派生文本，支持模型能力变化后的按需重建与结构化输出校验。
 - 优化单轮模型上下文稳定性，并统一 OpenAI、Anthropic 和 Gemini 缓存 Token 上报语义。
 - 首次发布 macOS Apple Silicon 与 Windows AMD64 Desktop Client，提供升级图标、确认提示和自动升级。
+- Server 自动升级改用独立、支持失败回滚的升级脚本，只更新 xAgent Server，不处理 Connector。
 
 支持的平台：
 

@@ -47,6 +47,8 @@ This beta release focuses on:
   OpenAI, Anthropic, and Gemini.
 - The first Desktop Client release for macOS Apple Silicon and Windows AMD64,
   including an update indicator and confirmation-based automatic updates.
+- Server auto-updates now use a standalone, rollback-capable upgrade script
+  that updates only xAgent Server and leaves Connectors untouched.
 
 The release supports:
 
