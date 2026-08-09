@@ -4,7 +4,7 @@
 
 本仓库用于发布 xAgent Server 官方二进制版本，仅包含发布包、校验文件、版本元数据和授权文件，不包含 xAgent 源代码。
 
-当前版本：[xAgent v0.0.8.beta](https://github.com/coffeehc/xagent-releases/releases/tag/v0.0.8.beta)
+当前版本：[xAgent v0.0.9.beta](https://github.com/coffeehc/xagent-releases/releases/tag/v0.0.9.beta)
 
 使用文档：
 
@@ -21,17 +21,17 @@ xAgent 既是员工统一使用 AI 的入口，也是企业统一管理 AI 的�
 
 ![xAgent 仪表板](assets/xagent-dashboard-zh.webp)
 
-## xAgent v0.0.8.beta
+## xAgent v0.0.9.beta
 
 本测试版重点更新：
 
-- 新增 S3/WebDAV 在线增量备份、定时策略、快照保留、恢复准备、切换回滚和可离线保管的 `recovery.yml`。
-- 新增 S3/WebDAV 云存储接入，并按用户和用户组 ACL 映射到公共目录。
-- 授权用户可以浏览、预览和下载远端内容，管理员可以直接创建目录和上传文件。
-- 会话输入框支持直接选择工作区、公共目录或云存储文件作为附件。
-- Skill 按用户回复语言投影，Skill 与 Connector 身份在管理界面和 Agent 运行时保持一致。
-- 生产模式隐藏开发期 Tool 管理入口，不影响 Agent 选用 Tool、审批策略或个人 MCP 配置。
-- 新增存储水位清理，只处理过期暂存、终态诊断、死信、过期运行版本和无业务引用文件。
+- 新增独立的 `/admin` 管理后台和 `/admin/login` 登录入口，与 `/app` 用户端菜单和路由完全分离。
+- Web 与桌面端统一为左右会话结构，主会话固定在搜索框上方，内容区在普通屏幕和超宽屏上按比例居中。
+- 会话提示词即使为空也可以直接新增，保存后从下一轮起作用于主会话、Connector 会话和普通子会话。
+- 表单和配置抽屉不再因误点遮罩而关闭，未保存的复杂配置不会意外丢失。
+- 用户端仪表盘收敛为个人“用量统计”，模型用量直接展开；全局和按用户统计保留在管理后台。
+- 会话工具栏和账号菜单进一步简化，并提供直接退出登录入口。
+- 收口运行时和持久化边界，读取旧 MemoryPointer 时不改写文件，数据库 Schema 在依赖服务启动前完成初始化。
 
 支持的平台：
 
@@ -40,7 +40,7 @@ xAgent 既是员工统一使用 AI 的入口，也是企业统一管理 AI 的�
 - macOS AMD64
 - macOS ARM64
 
-完整功能变化和升级说明见[本版更新日志](changelog/v0.0.8.beta.md)。
+完整功能变化和升级说明见[本版更新日志](changelog/v0.0.9.beta.md)。
 
 ## 安装
 
@@ -56,13 +56,13 @@ curl -fsSL https://downloads.xagent.xiagaogao.com/scripts/install.sh | bash
 
 ## 手动下载
 
-发布文件可从 [GitHub Releases](https://github.com/coffeehc/xagent-releases/releases) 下载。`v0.0.8.beta` 提供以下平台包：
+发布文件可从 [GitHub Releases](https://github.com/coffeehc/xagent-releases/releases) 下载。`v0.0.9.beta` 提供以下平台包：
 
 ```text
-xagent-v0.0.8.beta-linux-amd64.tar.gz
-xagent-v0.0.8.beta-linux-arm64.tar.gz
-xagent-v0.0.8.beta-darwin-amd64.tar.gz
-xagent-v0.0.8.beta-darwin-arm64.tar.gz
+xagent-v0.0.9.beta-linux-amd64.tar.gz
+xagent-v0.0.9.beta-linux-arm64.tar.gz
+xagent-v0.0.9.beta-darwin-amd64.tar.gz
+xagent-v0.0.9.beta-darwin-arm64.tar.gz
 ```
 
 Release 同时提供：

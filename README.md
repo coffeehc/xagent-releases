@@ -6,7 +6,7 @@ This repository distributes official xAgent Server binary releases. It contains
 release artifacts, checksums, metadata, and licensing documents, but no xAgent
 source code.
 
-Current release: [xAgent v0.0.8.beta](https://github.com/coffeehc/xagent-releases/releases/tag/v0.0.8.beta)
+Current release: [xAgent v0.0.9.beta](https://github.com/coffeehc/xagent-releases/releases/tag/v0.0.9.beta)
 
 Documentation:
 
@@ -31,25 +31,23 @@ xAgent does not grant users broader access.
 
 ![xAgent dashboard](assets/xagent-dashboard-en.webp)
 
-## xAgent v0.0.8.beta
+## xAgent v0.0.9.beta
 
 This beta release focuses on:
 
-- Encrypted online incremental backups to S3 or WebDAV, with scheduling,
-  retention policy, recovery preparation, cutover rollback, and a portable
-  `recovery.yml`.
-- S3 and WebDAV cloud-storage connections mounted into shared files with
-  inherited user and group ACLs.
-- Direct browsing, preview, download, directory creation, and upload against
-  authorized cloud-storage connections.
-- Workspace, shared, and cloud-storage files can now be selected directly as
-  session attachments.
-- Language-aware Skill visibility and consistent Skill and Connector identity
-  across administration and Agent runtime.
-- Development-only Tool management is hidden in production without affecting
-  Agent Tool selection, approval policies, or personal MCP configuration.
-- Storage-pressure cleanup for expired staging, terminal diagnostics, dead
-  letters, obsolete runtime versions, and unreferenced file content.
+- A dedicated `/admin` console and `/admin/login` entry point, fully separated
+  from the `/app` user workspace and its menus.
+- A consistent two-column session workspace across Web and desktop, with the
+  main session pinned above search and proportional centering on wide screens.
+- Editable per-session prompts even when no prompt exists yet, with immediate
+  next-turn application for main, Connector, and regular sub-sessions.
+- Safer configuration drawers that preserve unfinished form work when the
+  backdrop is clicked.
+- A focused personal Usage Statistics page with always-visible model details,
+  while global and per-user reporting remains in the administration console.
+- A simplified session toolbar and account menu, including direct sign-out.
+- Runtime and persistence cleanup that preserves legacy MemoryPointer files and
+  initializes the database schema before dependent services start.
 
 The release supports:
 
@@ -58,7 +56,7 @@ The release supports:
 - macOS AMD64
 - macOS ARM64
 
-See the [release notes](changelog/v0.0.8.beta.md) for user-facing changes and
+See the [release notes](changelog/v0.0.9.beta.md) for user-facing changes and
 upgrade notes.
 
 ## Install
@@ -82,13 +80,13 @@ for deployment requirements and first-time system setup.
 ## Manual Download
 
 Release assets are available from [GitHub Releases](https://github.com/coffeehc/xagent-releases/releases).
-The `v0.0.8.beta` platform packages are:
+The `v0.0.9.beta` platform packages are:
 
 ```text
-xagent-v0.0.8.beta-linux-amd64.tar.gz
-xagent-v0.0.8.beta-linux-arm64.tar.gz
-xagent-v0.0.8.beta-darwin-amd64.tar.gz
-xagent-v0.0.8.beta-darwin-arm64.tar.gz
+xagent-v0.0.9.beta-linux-amd64.tar.gz
+xagent-v0.0.9.beta-linux-arm64.tar.gz
+xagent-v0.0.9.beta-darwin-amd64.tar.gz
+xagent-v0.0.9.beta-darwin-arm64.tar.gz
 ```
 
 The release also provides:
