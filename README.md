@@ -6,7 +6,7 @@ This repository distributes official xAgent Server binary releases. It contains
 release artifacts, checksums, metadata, and licensing documents, but no xAgent
 source code.
 
-Current release: [xAgent v0.0.7.beta](https://github.com/coffeehc/xagent-releases/releases/tag/v0.0.7.beta)
+Current release: [xAgent v0.0.8.beta](https://github.com/coffeehc/xagent-releases/releases/tag/v0.0.8.beta)
 
 Documentation:
 
@@ -31,24 +31,25 @@ xAgent does not grant users broader access.
 
 ![xAgent dashboard](assets/xagent-dashboard-en.webp)
 
-## xAgent v0.0.7.beta
+## xAgent v0.0.8.beta
 
 This beta release focuses on:
 
-- Unified Local and S3 file storage with managed migration, integrity checks,
-  local fallback, and automatic recovery.
-- An instance-wide shared directory with inherited read and read-write ACLs for
-  users and groups.
-- ACL-filtered shared-file browsing, preview, and download from the user
-  workspace file tree.
-- Configurable OCR-derived text for image attachments, with capability-aware
-  regeneration and structured-output validation.
-- More stable per-turn model context and normalized cache-token reporting for
-  OpenAI, Anthropic, and Gemini.
-- The first Desktop Client release for macOS Apple Silicon and Windows AMD64,
-  including an update indicator and confirmation-based automatic updates.
-- Server auto-updates now use a standalone, rollback-capable upgrade script
-  that updates only xAgent Server and leaves Connectors untouched.
+- Encrypted online incremental backups to S3 or WebDAV, with scheduling,
+  retention policy, recovery preparation, cutover rollback, and a portable
+  `recovery.yml`.
+- S3 and WebDAV cloud-storage connections mounted into shared files with
+  inherited user and group ACLs.
+- Direct browsing, preview, download, directory creation, and upload against
+  authorized cloud-storage connections.
+- Workspace, shared, and cloud-storage files can now be selected directly as
+  session attachments.
+- Language-aware Skill visibility and consistent Skill and Connector identity
+  across administration and Agent runtime.
+- Development-only Tool management is hidden in production without affecting
+  Agent Tool selection, approval policies, or personal MCP configuration.
+- Storage-pressure cleanup for expired staging, terminal diagnostics, dead
+  letters, obsolete runtime versions, and unreferenced file content.
 
 The release supports:
 
@@ -57,8 +58,8 @@ The release supports:
 - macOS AMD64
 - macOS ARM64
 
-See the [full changelog](https://xagent.xiagaogao.com/en/docs/changelog/) for
-user-facing changes and upgrade notes.
+See the [release notes](changelog/v0.0.8.beta.md) for user-facing changes and
+upgrade notes.
 
 ## Install
 
@@ -81,13 +82,13 @@ for deployment requirements and first-time system setup.
 ## Manual Download
 
 Release assets are available from [GitHub Releases](https://github.com/coffeehc/xagent-releases/releases).
-The `v0.0.7.beta` platform packages are:
+The `v0.0.8.beta` platform packages are:
 
 ```text
-xagent-v0.0.7.beta-linux-amd64.tar.gz
-xagent-v0.0.7.beta-linux-arm64.tar.gz
-xagent-v0.0.7.beta-darwin-amd64.tar.gz
-xagent-v0.0.7.beta-darwin-arm64.tar.gz
+xagent-v0.0.8.beta-linux-amd64.tar.gz
+xagent-v0.0.8.beta-linux-arm64.tar.gz
+xagent-v0.0.8.beta-darwin-amd64.tar.gz
+xagent-v0.0.8.beta-darwin-arm64.tar.gz
 ```
 
 The release also provides:

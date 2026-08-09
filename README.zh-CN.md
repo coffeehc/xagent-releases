@@ -4,7 +4,7 @@
 
 本仓库用于发布 xAgent Server 官方二进制版本，仅包含发布包、校验文件、版本元数据和授权文件，不包含 xAgent 源代码。
 
-当前版本：[xAgent v0.0.7.beta](https://github.com/coffeehc/xagent-releases/releases/tag/v0.0.7.beta)
+当前版本：[xAgent v0.0.8.beta](https://github.com/coffeehc/xagent-releases/releases/tag/v0.0.8.beta)
 
 使用文档：
 
@@ -21,17 +21,17 @@ xAgent 既是员工统一使用 AI 的入口，也是企业统一管理 AI 的�
 
 ![xAgent 仪表板](assets/xagent-dashboard-zh.webp)
 
-## xAgent v0.0.7.beta
+## xAgent v0.0.8.beta
 
 本测试版重点更新：
 
-- 新增统一 Local/S3 文件存储，支持受管迁移、完整性校验、本地兜底和自动恢复。
-- 新增实例级共享目录，并支持按用户或用户组继承的只读、读写 ACL。
-- 用户可以从工作区文件树按 ACL 浏览、预览和下载共享文件。
-- 新增图片附件 OCR 派生文本，支持模型能力变化后的按需重建与结构化输出校验。
-- 优化单轮模型上下文稳定性，并统一 OpenAI、Anthropic 和 Gemini 缓存 Token 上报语义。
-- 首次发布 macOS Apple Silicon 与 Windows AMD64 Desktop Client，提供升级图标、确认提示和自动升级。
-- Server 自动升级改用独立、支持失败回滚的升级脚本，只更新 xAgent Server，不处理 Connector。
+- 新增 S3/WebDAV 在线增量备份、定时策略、快照保留、恢复准备、切换回滚和可离线保管的 `recovery.yml`。
+- 新增 S3/WebDAV 云存储接入，并按用户和用户组 ACL 映射到公共目录。
+- 授权用户可以浏览、预览和下载远端内容，管理员可以直接创建目录和上传文件。
+- 会话输入框支持直接选择工作区、公共目录或云存储文件作为附件。
+- Skill 按用户回复语言投影，Skill 与 Connector 身份在管理界面和 Agent 运行时保持一致。
+- 生产模式隐藏开发期 Tool 管理入口，不影响 Agent 选用 Tool、审批策略或个人 MCP 配置。
+- 新增存储水位清理，只处理过期暂存、终态诊断、死信、过期运行版本和无业务引用文件。
 
 支持的平台：
 
@@ -40,7 +40,7 @@ xAgent 既是员工统一使用 AI 的入口，也是企业统一管理 AI 的�
 - macOS AMD64
 - macOS ARM64
 
-完整功能变化和升级说明见[更新日志](https://xagent.xiagaogao.com/docs/changelog/)。
+完整功能变化和升级说明见[本版更新日志](changelog/v0.0.8.beta.md)。
 
 ## 安装
 
@@ -56,13 +56,13 @@ curl -fsSL https://downloads.xagent.xiagaogao.com/scripts/install.sh | bash
 
 ## 手动下载
 
-发布文件可从 [GitHub Releases](https://github.com/coffeehc/xagent-releases/releases) 下载。`v0.0.7.beta` 提供以下平台包：
+发布文件可从 [GitHub Releases](https://github.com/coffeehc/xagent-releases/releases) 下载。`v0.0.8.beta` 提供以下平台包：
 
 ```text
-xagent-v0.0.7.beta-linux-amd64.tar.gz
-xagent-v0.0.7.beta-linux-arm64.tar.gz
-xagent-v0.0.7.beta-darwin-amd64.tar.gz
-xagent-v0.0.7.beta-darwin-arm64.tar.gz
+xagent-v0.0.8.beta-linux-amd64.tar.gz
+xagent-v0.0.8.beta-linux-arm64.tar.gz
+xagent-v0.0.8.beta-darwin-amd64.tar.gz
+xagent-v0.0.8.beta-darwin-arm64.tar.gz
 ```
 
 Release 同时提供：
