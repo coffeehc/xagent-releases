@@ -6,7 +6,7 @@ This repository distributes official xAgent Server binary releases. It contains
 release artifacts, checksums, metadata, and licensing documents, but no xAgent
 source code.
 
-Current release: [xAgent v0.0.9.beta](https://github.com/coffeehc/xagent-releases/releases/tag/v0.0.9.beta)
+Current release: [xAgent v0.0.10.beta](https://github.com/coffeehc/xagent-releases/releases/tag/v0.0.10.beta)
 
 Documentation:
 
@@ -31,23 +31,28 @@ xAgent does not grant users broader access.
 
 ![xAgent dashboard](assets/xagent-dashboard-en.webp)
 
-## xAgent v0.0.9.beta
+## xAgent v0.0.10.beta
 
 This beta release focuses on:
 
-- A dedicated `/admin` console and `/admin/login` entry point, fully separated
-  from the `/app` user workspace and its menus.
-- A consistent two-column session workspace across Web and desktop, with the
-  main session pinned above search and proportional centering on wide screens.
-- Editable per-session prompts even when no prompt exists yet, with immediate
-  next-turn application for main, Connector, and regular sub-sessions.
-- Safer configuration drawers that preserve unfinished form work when the
-  backdrop is clicked.
-- A focused personal Usage Statistics page with always-visible model details,
-  while global and per-user reporting remains in the administration console.
-- A simplified session toolbar and account menu, including direct sign-out.
-- Runtime and persistence cleanup that preserves legacy MemoryPointer files and
-  initializes the database schema before dependent services start.
+- Task-aware capability preparation that keeps the existing environment for a
+  continuing goal and reconciles Skills, Tools, and memory when the goal changes.
+- Goal-oriented English retrieval terms for Skills, Tools, and Memory, including direct
+  retrieval of standalone Tools followed by semantic capability selection.
+- Platform capability self-awareness covering capability discovery, memory,
+  managed secret references, Connectors, and externally or periodically triggered signals.
+- Model-decided Tool use when Tools are available instead of forcing a Tool call
+  on every request.
+- Project-oriented session navigation and persisted collaboration between main
+  and sub-sessions, including precise result delivery to the source session.
+- Localized Skill Cards, accurate loaded-capability views, and a read-only
+  context-cache snapshot for session diagnostics.
+- Rendered Markdown, worksheet-aware spreadsheet preview, and stable standalone
+  Workspace download links with retry support.
+- Unified console and Agent response language preferences, expanded user-data
+  formatting, and a local administrator password-recovery command.
+- Safer handling of incomplete Tool arguments and output limits across OpenAI
+  and compatible Providers.
 
 The release supports:
 
@@ -56,7 +61,7 @@ The release supports:
 - macOS AMD64
 - macOS ARM64
 
-See the [release notes](changelog/v0.0.9.beta.md) for user-facing changes and
+See the [release notes](changelog/v0.0.10.beta.md) for user-facing changes and
 upgrade notes.
 
 ## Install
@@ -80,13 +85,13 @@ for deployment requirements and first-time system setup.
 ## Manual Download
 
 Release assets are available from [GitHub Releases](https://github.com/coffeehc/xagent-releases/releases).
-The `v0.0.9.beta` platform packages are:
+The `v0.0.10.beta` platform packages are:
 
 ```text
-xagent-v0.0.9.beta-linux-amd64.tar.gz
-xagent-v0.0.9.beta-linux-arm64.tar.gz
-xagent-v0.0.9.beta-darwin-amd64.tar.gz
-xagent-v0.0.9.beta-darwin-arm64.tar.gz
+xagent-v0.0.10.beta-linux-amd64.tar.gz
+xagent-v0.0.10.beta-linux-arm64.tar.gz
+xagent-v0.0.10.beta-darwin-amd64.tar.gz
+xagent-v0.0.10.beta-darwin-arm64.tar.gz
 ```
 
 The release also provides:

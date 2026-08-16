@@ -4,7 +4,7 @@
 
 本仓库用于发布 xAgent Server 官方二进制版本，仅包含发布包、校验文件、版本元数据和授权文件，不包含 xAgent 源代码。
 
-当前版本：[xAgent v0.0.9.beta](https://github.com/coffeehc/xagent-releases/releases/tag/v0.0.9.beta)
+当前版本：[xAgent v0.0.10.beta](https://github.com/coffeehc/xagent-releases/releases/tag/v0.0.10.beta)
 
 使用文档：
 
@@ -21,17 +21,19 @@ xAgent 既是员工统一使用 AI 的入口，也是企业统一管理 AI 的�
 
 ![xAgent 仪表板](assets/xagent-dashboard-zh.webp)
 
-## xAgent v0.0.9.beta
+## xAgent v0.0.10.beta
 
 本测试版重点更新：
 
-- 新增独立的 `/admin` 管理后台和 `/admin/login` 登录入口，与 `/app` 用户端菜单和路由完全分离。
-- Web 与桌面端统一为左右会话结构，主会话固定在搜索框上方，内容区在普通屏幕和超宽屏上按比例居中。
-- 会话提示词即使为空也可以直接新增，保存后从下一轮起作用于主会话、Connector 会话和普通子会话。
-- 表单和配置抽屉不再因误点遮罩而关闭，未保存的复杂配置不会意外丢失。
-- 用户端仪表盘收敛为个人“用量统计”，模型用量直接展开；全局和按用户统计保留在管理后台。
-- 会话工具栏和账号菜单进一步简化，并提供直接退出登录入口。
-- 收口运行时和持久化边界，读取旧 MemoryPointer 时不改写文件，数据库 Schema 在依赖服务启动前完成初始化。
+- 新消息会先与当前任务和会话总目标对齐；任务延续时保持现有环境，目标变化时再调整 Skill、Tool 和长期记忆。
+- 从任务目标分别提炼英文 Skill、Tool 和 Memory 检索短语，支持独立 Tool 直接进入候选，再由任务能力编排完成最终选择。
+- 补齐平台能力自知，覆盖能力发现、长期记忆、凭据引用、Connector，以及外部入口或定时触发器产生的信号。
+- Tool 可用时由模型根据任务自行决定是否调用，不再强制每轮必须调用 Tool。
+- 会话侧栏支持项目化组织，主会话与子会话之间的协作请求持久保存，结果会准确回到来源会话。
+- Skill 支持本地化名称、描述和图标；高级配置展示实际加载能力，会话工具栏新增只读上下文缓存快照。
+- Markdown 渲染预览、电子表格工作表切换和 Workspace 独立下载链接补齐文件查看与交付体验。
+- 界面语言与 Agent 回复语言保持一致；格式化用户数据会完整清理 Memory，并新增服务器本机管理员密码恢复命令。
+- 修正 OpenAI 及兼容 Provider 在输出上限截断 Tool 参数时可能误执行和重复调用的问题。
 
 支持的平台：
 
@@ -40,7 +42,7 @@ xAgent 既是员工统一使用 AI 的入口，也是企业统一管理 AI 的�
 - macOS AMD64
 - macOS ARM64
 
-完整功能变化和升级说明见[本版更新日志](changelog/v0.0.9.beta.md)。
+完整功能变化和升级说明见[本版更新日志](changelog/v0.0.10.beta.md)。
 
 ## 安装
 
@@ -56,13 +58,13 @@ curl -fsSL https://downloads.xagent.xiagaogao.com/scripts/install.sh | bash
 
 ## 手动下载
 
-发布文件可从 [GitHub Releases](https://github.com/coffeehc/xagent-releases/releases) 下载。`v0.0.9.beta` 提供以下平台包：
+发布文件可从 [GitHub Releases](https://github.com/coffeehc/xagent-releases/releases) 下载。`v0.0.10.beta` 提供以下平台包：
 
 ```text
-xagent-v0.0.9.beta-linux-amd64.tar.gz
-xagent-v0.0.9.beta-linux-arm64.tar.gz
-xagent-v0.0.9.beta-darwin-amd64.tar.gz
-xagent-v0.0.9.beta-darwin-arm64.tar.gz
+xagent-v0.0.10.beta-linux-amd64.tar.gz
+xagent-v0.0.10.beta-linux-arm64.tar.gz
+xagent-v0.0.10.beta-darwin-amd64.tar.gz
+xagent-v0.0.10.beta-darwin-arm64.tar.gz
 ```
 
 Release 同时提供：
