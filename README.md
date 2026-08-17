@@ -53,6 +53,9 @@ This beta release focuses on:
   formatting, and a local administrator password-recovery command.
 - Safer handling of incomplete Tool arguments and output limits across OpenAI
   and compatible Providers.
+- An emergency fix prevents asynchronously cleaned Session temporary files from
+  blocking Session deletion; `tmp` no longer creates managed file records, and
+  cleanup removes legacy records.
 
 The release supports:
 
