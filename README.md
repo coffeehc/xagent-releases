@@ -6,7 +6,7 @@ This repository distributes official xAgent Server binary releases. It contains
 release artifacts, checksums, metadata, and licensing documents, but no xAgent
 source code.
 
-Current release: [xAgent v0.0.10.beta](https://github.com/coffeehc/xagent-releases/releases/tag/v0.0.10.beta)
+Current release: [xAgent v0.0.11.beta](https://github.com/coffeehc/xagent-releases/releases/tag/v0.0.11.beta)
 
 Documentation:
 
@@ -31,31 +31,21 @@ xAgent does not grant users broader access.
 
 ![xAgent dashboard](assets/xagent-dashboard-en.webp)
 
-## xAgent v0.0.10.beta
+## xAgent v0.0.11.beta
 
 This beta release focuses on:
 
-- Task-aware capability preparation that keeps the existing environment for a
-  continuing goal and reconciles Skills, Tools, and memory when the goal changes.
-- Goal-oriented English retrieval terms for Skills, Tools, and Memory, including direct
-  retrieval of standalone Tools followed by semantic capability selection.
-- Platform capability self-awareness covering capability discovery, memory,
-  managed secret references, Connectors, and externally or periodically triggered signals.
-- Model-decided Tool use when Tools are available instead of forcing a Tool call
-  on every request.
-- Project-oriented session navigation and persisted collaboration between main
-  and sub-sessions, including precise result delivery to the source session.
-- Localized Skill Cards, accurate loaded-capability views, and a read-only
-  context-cache snapshot for session diagnostics.
-- Rendered Markdown, worksheet-aware spreadsheet preview, and stable standalone
-  Workspace download links with retry support.
-- Unified console and Agent response language preferences, expanded user-data
-  formatting, and a local administrator password-recovery command.
-- Safer handling of incomplete Tool arguments and output limits across OpenAI
-  and compatible Providers.
-- An emergency fix prevents asynchronously cleaned Session temporary files from
-  blocking Session deletion; `tmp` no longer creates managed file records, and
-  cleanup removes legacy records.
+- Connector Protocol 4.3 with compatibility for 3.0 through 4.2, negotiated
+  data-plane versions, multi-resource routing, and no `target_type` allowlist.
+- Directory-based Connector Skills through `/skill.json`, atomic local imports,
+  stable English Skill IDs, localized Cards, and ignored script files.
+- First public Database and SSH Connector Servers with Connector-owned target
+  credentials, user authentication, dynamic configuration, and audit boundaries.
+- The `xagent.file.v1` Profile for explicit bidirectional file capabilities.
+- Native image generation with validated immutable Session artifacts.
+- Ephemeral Session working-state Tools, simplified Connector Session names,
+  and streamlined model capability configuration.
+- Updated WeChat, Telegram, Feishu, Database, and SSH Connector releases.
 
 The release supports:
 
@@ -64,7 +54,7 @@ The release supports:
 - macOS AMD64
 - macOS ARM64
 
-See the [release notes](changelog/v0.0.10.beta.md) for user-facing changes and
+See the [release notes](changelog/v0.0.11.beta.md) for user-facing changes and
 upgrade notes.
 
 ## Install
@@ -88,13 +78,13 @@ for deployment requirements and first-time system setup.
 ## Manual Download
 
 Release assets are available from [GitHub Releases](https://github.com/coffeehc/xagent-releases/releases).
-The `v0.0.10.beta` platform packages are:
+The `v0.0.11.beta` platform packages are:
 
 ```text
-xagent-v0.0.10.beta-linux-amd64.tar.gz
-xagent-v0.0.10.beta-linux-arm64.tar.gz
-xagent-v0.0.10.beta-darwin-amd64.tar.gz
-xagent-v0.0.10.beta-darwin-arm64.tar.gz
+xagent-v0.0.11.beta-linux-amd64.tar.gz
+xagent-v0.0.11.beta-linux-arm64.tar.gz
+xagent-v0.0.11.beta-darwin-amd64.tar.gz
+xagent-v0.0.11.beta-darwin-arm64.tar.gz
 ```
 
 The release also provides:
