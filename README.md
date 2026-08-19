@@ -40,13 +40,18 @@ This beta release focuses on:
 - Directory-based Connector Skills through `/skill.json`, atomic local imports,
   stable English Skill IDs, localized Cards, and ignored script files.
 - First public Database and SSH Connector Servers with Connector-owned target
-  credentials, user authentication, dynamic configuration, and audit boundaries.
+  credentials, user authentication, management pages, persistent Channel
+  recovery, and audit boundaries.
+- The `xagent.manage.v1` control plane opens Connector-owned management pages
+  through the isolated xAgent reverse proxy without exposing System API Keys.
+- Full Card, Tool, Skill, Profile, and authentication-flow refresh after a Card
+  revision change without reconnecting the Connector data plane.
 - The `xagent.file.v1` Profile for explicit bidirectional file capabilities.
 - Native image generation with validated immutable Session artifacts.
 - Ephemeral Session working-state Tools, simplified Connector Session names,
   and streamlined model capability configuration.
-- Updated WeChat, Telegram, and Feishu Connector releases, plus Database `0.0.3`
-  and SSH `0.0.4`, which now start successfully before resources are configured.
+- Updated WeChat `0.0.11`, Telegram `0.0.12`, Feishu `0.0.11`, Database `0.0.5`,
+  and SSH `0.0.7`, with a shared 24-hour offline grace period.
 
 The release supports:
 

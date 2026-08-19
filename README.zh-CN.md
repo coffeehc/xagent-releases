@@ -27,11 +27,13 @@ xAgent 既是员工统一使用 AI 的入口，也是企业统一管理 AI 的�
 
 - Connector Protocol 升级到 4.3，同时兼容 3.0 至 4.2，支持数据平面版本协商和单 Channel 多资源路由，并删除 `target_type` 接入限制。
 - Connector Skill 支持 `/skill.json` 目录清单、原子导入、稳定英文 ID 和本地化 Card；脚本文件会被忽略。
-- 首次正式发布 Database 与 SSH Connector Server，目标凭据、用户认证和操作审计均保留在 Connector Server 内。
+- Database 与 SSH Connector Server 提供管理页面和持久 Channel 恢复，目标凭据、用户认证和操作审计均保留在 Connector Server 内。
+- 新增 `xagent.manage.v1` 管理控制面，通过 xAgent 独立端口反向代理打开 Connector 自有管理页面，不向浏览器暴露 System API Key。
+- Connector Card revision 变化后全量刷新 Card、Tool、Skill、Profile 和认证流程，不需要重连 data plane。
 - 新增 `xagent.file.v1`，由 Connector 明确声明双向文件能力。
 - 新增原生图片生成工具，生成结果校验后作为不可变 Session 产物保存和展示。
 - 新增会话临时工作状态工具，收口 Connector 会话名称与模型能力配置。
-- 同步发布 WeChat、Telegram、Feishu、Database `0.0.3` 和 SSH `0.0.4` Connector；Database 与 SSH 可在尚未配置资源时正常启动。
+- 同步发布 WeChat `0.0.11`、Telegram `0.0.12`、Feishu `0.0.11`、Database `0.0.5` 和 SSH `0.0.7`，并统一使用 24 小时离线保护期。
 
 支持的平台：
 
