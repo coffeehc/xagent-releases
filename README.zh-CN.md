@@ -31,7 +31,7 @@ xAgent 既是员工统一使用 AI 的入口，也是企业统一管理 AI 的�
 - 新增 `xagent.file.v1`，由 Connector 明确声明双向文件能力。
 - 新增原生图片生成工具，生成结果校验后作为不可变 Session 产物保存和展示。
 - 新增会话临时工作状态工具，收口 Connector 会话名称与模型能力配置。
-- 同步发布 WeChat、Telegram、Feishu、Database 和 SSH Connector 新版本。
+- 同步发布 WeChat、Telegram、Feishu、Database `0.0.3` 和 SSH `0.0.4` Connector；Database 与 SSH 可在尚未配置资源时正常启动。
 
 支持的平台：
 

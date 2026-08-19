@@ -45,7 +45,8 @@ This beta release focuses on:
 - Native image generation with validated immutable Session artifacts.
 - Ephemeral Session working-state Tools, simplified Connector Session names,
   and streamlined model capability configuration.
-- Updated WeChat, Telegram, Feishu, Database, and SSH Connector releases.
+- Updated WeChat, Telegram, and Feishu Connector releases, plus Database `0.0.3`
+  and SSH `0.0.4`, which now start successfully before resources are configured.
 
 The release supports:
 
