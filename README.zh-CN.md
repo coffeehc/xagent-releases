@@ -25,6 +25,9 @@ xAgent 既是员工统一使用 AI 的入口，也是企业统一管理 AI 的�
 
 本测试版重点更新：
 
+- `/clear-history` 对主会话、普通子会话和 Connector 专属会话开放。
+- 上下文压缩会丢弃模型生成的无效产物引用，不再因此导致 checkpoint 失败。
+- 当前轮失败或服务重启后恢复排队的用户指导和 Session 事件，避免会话显示运行但不再推进。
 - Connector Protocol 升级到 4.3，同时兼容 3.0 至 4.2，支持数据平面版本协商和单 Channel 多资源路由，并删除 `target_type` 接入限制。
 - Connector Skill 支持 `/skill.json` 目录清单、原子导入、稳定英文 ID 和本地化 Card；脚本文件会被忽略。
 - Database 与 SSH Connector Server 提供管理页面和持久 Channel 恢复，目标凭据、用户认证和操作审计均保留在 Connector Server 内。

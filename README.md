@@ -35,6 +35,12 @@ xAgent does not grant users broader access.
 
 This beta release focuses on:
 
+- `/clear-history` support for main Sessions, regular sub-Sessions, and
+  Connector-owned Sessions.
+- Safer context-compression artifact validation that discards invalid model
+  references instead of failing the checkpoint.
+- Queued guidance and Session-event recovery after turn failures and service
+  restarts.
 - Connector Protocol 4.3 with compatibility for 3.0 through 4.2, negotiated
   data-plane versions, multi-resource routing, and no `target_type` allowlist.
 - Directory-based Connector Skills through `/skill.json`, atomic local imports,
