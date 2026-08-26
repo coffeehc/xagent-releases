@@ -35,6 +35,9 @@ xAgent does not grant users broader access.
 
 This beta release focuses on:
 
+- A concise three-part Server version in the sidebar, with an administrator
+  action to check for updates immediately and continue into the existing
+  one-click upgrade flow.
 - Model-aware context budgets and automatic compression with one consistent
   cache across compressed summaries, recent messages, and current input.
 - A database-paginated My Memory view plus stricter long-term admission that
