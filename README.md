@@ -44,6 +44,8 @@ This beta release focuses on:
   rejects Session-only state, questions, hypotheticals, and sensitive data.
 - Conditional semantic review for ambiguous or duplicate Memory candidates
   without silently rewriting existing facts.
+- Full-file reads for Memory extraction segments, including segments larger than
+  the workspace text-preview limit.
 - Bounded concurrent Tool calls that preserve completed siblings when another
   call waits for approval or continuation.
 - Tool cards that distinguish argument streaming from execution and refuse to
@@ -53,6 +55,8 @@ This beta release focuses on:
 - Existing-file Tools prefer an accessible `path` and fall back to `file_ref`
   when both identities are supplied.
 - Unified xAgentDB storage and startup migration for legacy user databases.
+- Safe startup migration of legacy decimal user workspaces to canonical
+  hexadecimal names without overwriting current files.
 - Platform-incident management that keeps infrastructure faults while excluding
   user, Tool-argument, retry, and cancellation noise.
 - Connector Protocol 4.3, multi-resource routing, directory-based Connector
