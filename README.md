@@ -6,7 +6,7 @@ This repository distributes official xAgent Server binary releases. It contains
 release artifacts, checksums, metadata, and licensing documents, but no xAgent
 source code.
 
-Current release: [xAgent v0.0.11.beta](https://github.com/coffeehc/xagent-releases/releases/tag/v0.0.11.beta)
+Current release: [xAgent v0.0.12.beta](https://github.com/coffeehc/xagent-releases/releases/tag/v0.0.12.beta)
 
 Documentation:
 
@@ -31,33 +31,31 @@ xAgent does not grant users broader access.
 
 ![xAgent dashboard](assets/xagent-dashboard-en.webp)
 
-## xAgent v0.0.11.beta
+## xAgent v0.0.12.beta
 
 This beta release focuses on:
 
-- `/clear-history` support for main Sessions, regular sub-Sessions, and
-  Connector-owned Sessions.
-- Safer context-compression artifact validation that discards invalid model
-  references instead of failing the checkpoint.
-- Queued guidance and Session-event recovery after turn failures and service
-  restarts.
-- Connector Protocol 4.3 with compatibility for 3.0 through 4.2, negotiated
-  data-plane versions, multi-resource routing, and no `target_type` allowlist.
-- Directory-based Connector Skills through `/skill.json`, atomic local imports,
-  stable English Skill IDs, localized Cards, and ignored script files.
-- First public Database and SSH Connector Servers with Connector-owned target
-  credentials, user authentication, management pages, persistent Channel
-  recovery, and audit boundaries.
-- The `xagent.manage.v1` control plane opens Connector-owned management pages
-  through the isolated xAgent reverse proxy without exposing System API Keys.
-- Full Card, Tool, Skill, Profile, and authentication-flow refresh after a Card
-  revision change without reconnecting the Connector data plane.
-- The `xagent.file.v1` Profile for explicit bidirectional file capabilities.
-- Native image generation with validated immutable Session artifacts.
-- Ephemeral Session working-state Tools, simplified Connector Session names,
-  and streamlined model capability configuration.
-- Updated WeChat `0.0.11`, Telegram `0.0.12`, Feishu `0.0.11`, Database `0.0.5`,
-  and SSH `0.0.7`, with a shared 24-hour offline grace period.
+- Model-aware context budgets and automatic compression with one consistent
+  cache across compressed summaries, recent messages, and current input.
+- A database-paginated My Memory view plus stricter long-term admission that
+  rejects Session-only state, questions, hypotheticals, and sensitive data.
+- Conditional semantic review for ambiguous or duplicate Memory candidates
+  without silently rewriting existing facts.
+- Bounded concurrent Tool calls that preserve completed siblings when another
+  call waits for approval or continuation.
+- Tool cards that distinguish argument streaming from execution and refuse to
+  execute arguments truncated by the model output limit.
+- Stable compression status presentation and removal of the manual `/compress`
+  command; `/clear-history` remains available.
+- Existing-file Tools prefer an accessible `path` and fall back to `file_ref`
+  when both identities are supplied.
+- Unified xAgentDB storage and startup migration for legacy user databases.
+- Platform-incident management that keeps infrastructure faults while excluding
+  user, Tool-argument, retry, and cancellation noise.
+- Connector Protocol 4.3, multi-resource routing, directory-based Connector
+  Skills, and the independent file-transfer Profile remain supported.
+- Updated WeChat `0.0.12`, Telegram `0.0.13`, Feishu `0.0.12`, Database `0.0.6`,
+  and SSH `0.0.8` Connector recommendations.
 
 The release supports:
 
@@ -66,7 +64,7 @@ The release supports:
 - macOS AMD64
 - macOS ARM64
 
-See the [release notes](changelog/v0.0.11.beta.md) for user-facing changes and
+See the [release notes](changelog/v0.0.12.beta.md) for user-facing changes and
 upgrade notes.
 
 ## Install
@@ -90,13 +88,13 @@ for deployment requirements and first-time system setup.
 ## Manual Download
 
 Release assets are available from [GitHub Releases](https://github.com/coffeehc/xagent-releases/releases).
-The `v0.0.11.beta` platform packages are:
+The `v0.0.12.beta` platform packages are:
 
 ```text
-xagent-v0.0.11.beta-linux-amd64.tar.gz
-xagent-v0.0.11.beta-linux-arm64.tar.gz
-xagent-v0.0.11.beta-darwin-amd64.tar.gz
-xagent-v0.0.11.beta-darwin-arm64.tar.gz
+xagent-v0.0.12.beta-linux-amd64.tar.gz
+xagent-v0.0.12.beta-linux-arm64.tar.gz
+xagent-v0.0.12.beta-darwin-amd64.tar.gz
+xagent-v0.0.12.beta-darwin-arm64.tar.gz
 ```
 
 The release also provides:

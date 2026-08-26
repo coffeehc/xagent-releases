@@ -4,7 +4,7 @@
 
 本仓库用于发布 xAgent Server 官方二进制版本，仅包含发布包、校验文件、版本元数据和授权文件，不包含 xAgent 源代码。
 
-当前版本：[xAgent v0.0.11.beta](https://github.com/coffeehc/xagent-releases/releases/tag/v0.0.11.beta)
+当前版本：[xAgent v0.0.12.beta](https://github.com/coffeehc/xagent-releases/releases/tag/v0.0.12.beta)
 
 使用文档：
 
@@ -21,22 +21,21 @@ xAgent 既是员工统一使用 AI 的入口，也是企业统一管理 AI 的�
 
 ![xAgent 仪表板](assets/xagent-dashboard-zh.webp)
 
-## xAgent v0.0.11.beta
+## xAgent v0.0.12.beta
 
 本测试版重点更新：
 
-- `/clear-history` 对主会话、普通子会话和 Connector 专属会话开放。
-- 上下文压缩会丢弃模型生成的无效产物引用，不再因此导致 checkpoint 失败。
-- 当前轮失败或服务重启后恢复排队的用户指导和 Session 事件，避免会话显示运行但不再推进。
-- Connector Protocol 升级到 4.3，同时兼容 3.0 至 4.2，支持数据平面版本协商和单 Channel 多资源路由，并删除 `target_type` 接入限制。
-- Connector Skill 支持 `/skill.json` 目录清单、原子导入、稳定英文 ID 和本地化 Card；脚本文件会被忽略。
-- Database 与 SSH Connector Server 提供管理页面和持久 Channel 恢复，目标凭据、用户认证和操作审计均保留在 Connector Server 内。
-- 新增 `xagent.manage.v1` 管理控制面，通过 xAgent 独立端口反向代理打开 Connector 自有管理页面，不向浏览器暴露 System API Key。
-- Connector Card revision 变化后全量刷新 Card、Tool、Skill、Profile 和认证流程，不需要重连 data plane。
-- 新增 `xagent.file.v1`，由 Connector 明确声明双向文件能力。
-- 新增原生图片生成工具，生成结果校验后作为不可变 Session 产物保存和展示。
-- 新增会话临时工作状态工具，收口 Connector 会话名称与模型能力配置。
-- 同步发布 WeChat `0.0.11`、Telegram `0.0.12`、Feishu `0.0.11`、Database `0.0.5` 和 SSH `0.0.7`，并统一使用 24 小时离线保护期。
+- 上下文预算跟随当前模型实际窗口和输出上限，压缩摘要、近期消息和本轮输入共用一致的预算与缓存事实。
+- “我的记忆”改为数据库分页，并收紧长期准入，排除仅当前会话有效的状态、问句、假设和敏感信息。
+- 只对歧义、纠正或疑似重复的 Memory 候选做条件式语义复核，不自动改写既有事实。
+- 同一轮多个 Tool 调用可受控并发；其中一个等待审批或继续时，已完成的同批结果不会丢失。
+- Tool 卡片区分“正在接收参数”和“正在执行”，模型输出上限截断的残缺参数不会被执行。
+- 会话压缩状态保持持续可见；删除手工 `/compress` 命令，保留 `/clear-history`。
+- 已有文件 Tool 同时收到 `path` 和 `file_ref` 时，优先使用可访问路径，路径不可用再回退到稳定文件引用。
+- 用户数据表能力并入统一 xAgentDB，并在启动时迁移旧用户数据库。
+- 平台异常管理保留真实基础设施故障，同时排除用户输入、Tool 参数、业务重试和主动取消噪音。
+- 继续支持 Connector Protocol 4.3、多资源路由、目录式 Connector Skill 和独立文件传输 Profile。
+- Connector 推荐版本更新为 WeChat `0.0.12`、Telegram `0.0.13`、Feishu `0.0.12`、Database `0.0.6` 和 SSH `0.0.8`。
 
 支持的平台：
 
@@ -45,7 +44,7 @@ xAgent 既是员工统一使用 AI 的入口，也是企业统一管理 AI 的�
 - macOS AMD64
 - macOS ARM64
 
-完整功能变化和升级说明见[本版更新日志](changelog/v0.0.11.beta.md)。
+完整功能变化和升级说明见[本版更新日志](changelog/v0.0.12.beta.md)。
 
 ## 安装
 
@@ -61,13 +60,13 @@ curl -fsSL https://downloads.xagent.xiagaogao.com/scripts/install.sh | bash
 
 ## 手动下载
 
-发布文件可从 [GitHub Releases](https://github.com/coffeehc/xagent-releases/releases) 下载。`v0.0.11.beta` 提供以下平台包：
+发布文件可从 [GitHub Releases](https://github.com/coffeehc/xagent-releases/releases) 下载。`v0.0.12.beta` 提供以下平台包：
 
 ```text
-xagent-v0.0.11.beta-linux-amd64.tar.gz
-xagent-v0.0.11.beta-linux-arm64.tar.gz
-xagent-v0.0.11.beta-darwin-amd64.tar.gz
-xagent-v0.0.11.beta-darwin-arm64.tar.gz
+xagent-v0.0.12.beta-linux-amd64.tar.gz
+xagent-v0.0.12.beta-linux-arm64.tar.gz
+xagent-v0.0.12.beta-darwin-amd64.tar.gz
+xagent-v0.0.12.beta-darwin-arm64.tar.gz
 ```
 
 Release 同时提供：
