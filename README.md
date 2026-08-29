@@ -6,7 +6,7 @@ This repository distributes official xAgent Server binary releases. It contains
 release artifacts, checksums, metadata, and licensing documents, but no xAgent
 source code.
 
-Current release: [xAgent v0.0.12.beta](https://github.com/coffeehc/xagent-releases/releases/tag/v0.0.12.beta)
+Current release: [xAgent v0.0.13.beta](https://github.com/coffeehc/xagent-releases/releases/tag/v0.0.13.beta)
 
 Documentation:
 
@@ -31,34 +31,25 @@ xAgent does not grant users broader access.
 
 ![xAgent dashboard](assets/xagent-dashboard-en.webp)
 
-## xAgent v0.0.12.beta
+## xAgent v0.0.13.beta
 
 This beta release focuses on:
 
-- A concise three-part Server version in the sidebar, with an administrator
-  action to check for updates immediately and continue into the existing
-  one-click upgrade flow.
-- Model-aware context budgets and automatic compression with one consistent
-  cache across compressed summaries, recent messages, and current input.
-- A database-paginated My Memory view plus stricter long-term admission that
-  rejects Session-only state, questions, hypotheticals, and sensitive data.
-- Conditional semantic review for ambiguous or duplicate Memory candidates
-  without silently rewriting existing facts.
-- Full-file reads for Memory extraction segments, including segments larger than
-  the workspace text-preview limit.
-- Bounded concurrent Tool calls that preserve completed siblings when another
-  call waits for approval or continuation.
-- Tool cards that distinguish argument streaming from execution and refuse to
-  execute arguments truncated by the model output limit.
-- Stable compression status presentation and removal of the manual `/compress`
-  command; `/clear-history` remains available.
-- Existing-file Tools prefer an accessible `path` and fall back to `file_ref`
-  when both identities are supplied.
-- Unified xAgentDB storage and startup migration for legacy user databases.
-- Safe startup migration of legacy decimal user workspaces to canonical
-  hexadecimal names without overwriting current files.
-- Platform-incident management that keeps infrastructure faults while excluding
-  user, Tool-argument, retry, and cancellation noise.
+- Native HTTP binary downloads, image conversion, and expanded Word document
+  inspection and update workflows.
+- A canonical CLI workspace directory and normalized Tool path arguments, so
+  models can use relative paths without a `$XAGENT_WORKSPACE` prefix.
+- Unified readiness checks for fonts, runtime assets, and execution environments
+  before Tool execution.
+- Tighter HTTP first-byte, sandbox-failure, and Tool-output classification to
+  reduce platform-incident noise from recoverable failures.
+- Removal of `/refresh_messages`; automatic synchronization and reconnect
+  recovery remain the source of truth.
+- Token usage charts with consistent compact formatting across axes and tooltips.
+- A certificate-free Free edition with fixed limits of 2 users, 30 Sessions,
+  1 WorkGroup, 5 Connector VChannels, and 5 scheduled tasks.
+- Automatic removal of historical v2 `free` and v1 `temporary` certificates;
+  License Server now issues Enterprise certificates only.
 - Connector Protocol 4.3, multi-resource routing, directory-based Connector
   Skills, and the independent file-transfer Profile remain supported.
 - Updated WeChat `0.0.12`, Telegram `0.0.13`, Feishu `0.0.12`, Database `0.0.6`,
@@ -71,7 +62,7 @@ The release supports:
 - macOS AMD64
 - macOS ARM64
 
-See the [release notes](changelog/v0.0.12.beta.md) for user-facing changes and
+See the [release notes](changelog/v0.0.13.beta.md) for user-facing changes and
 upgrade notes.
 
 ## Install
@@ -95,13 +86,13 @@ for deployment requirements and first-time system setup.
 ## Manual Download
 
 Release assets are available from [GitHub Releases](https://github.com/coffeehc/xagent-releases/releases).
-The `v0.0.12.beta` platform packages are:
+The `v0.0.13.beta` platform packages are:
 
 ```text
-xagent-v0.0.12.beta-linux-amd64.tar.gz
-xagent-v0.0.12.beta-linux-arm64.tar.gz
-xagent-v0.0.12.beta-darwin-amd64.tar.gz
-xagent-v0.0.12.beta-darwin-arm64.tar.gz
+xagent-v0.0.13.beta-linux-amd64.tar.gz
+xagent-v0.0.13.beta-linux-arm64.tar.gz
+xagent-v0.0.13.beta-darwin-amd64.tar.gz
+xagent-v0.0.13.beta-darwin-arm64.tar.gz
 ```
 
 The release also provides:
