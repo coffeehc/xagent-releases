@@ -6,7 +6,7 @@ This repository distributes official xAgent Server binary releases. It contains
 release artifacts, checksums, metadata, and licensing documents, but no xAgent
 source code.
 
-Current release: [xAgent v0.0.13.beta](https://github.com/coffeehc/xagent-releases/releases/tag/v0.0.13.beta)
+Current release: [xAgent v0.0.15.beta](https://github.com/coffeehc/xagent-releases/releases/tag/v0.0.15.beta)
 
 Documentation:
 
@@ -31,29 +31,29 @@ xAgent does not grant users broader access.
 
 ![xAgent dashboard](assets/xagent-dashboard-en.webp)
 
-## xAgent v0.0.13.beta
+## xAgent v0.0.15.beta
 
 This beta release focuses on:
 
-- Native HTTP binary downloads, image conversion, and expanded Word document
-  inspection and update workflows.
-- A canonical CLI workspace directory and normalized Tool path arguments, so
-  models can use relative paths without a `$XAGENT_WORKSPACE` prefix.
-- Unified readiness checks for fonts, runtime assets, and execution environments
-  before Tool execution.
-- Tighter HTTP first-byte, sandbox-failure, and Tool-output classification to
-  reduce platform-incident noise from recoverable failures.
-- Removal of `/refresh_messages`; automatic synchronization and reconnect
-  recovery remain the source of truth.
-- Token usage charts with consistent compact formatting across axes and tooltips.
-- A certificate-free Free edition with fixed limits of 2 users, 30 Sessions,
-  1 WorkGroup, 5 Connector VChannels, and 5 scheduled tasks.
-- Automatic removal of historical v2 `free` and v1 `temporary` certificates;
-  License Server now issues Enterprise certificates only.
-- Connector Protocol 4.3, multi-resource routing, directory-based Connector
-  Skills, and the independent file-transfer Profile remain supported.
-- Updated WeChat `0.0.12`, Telegram `0.0.13`, Feishu `0.0.12`, Database `0.0.6`,
-  and SSH `0.0.8` Connector recommendations.
+- AgentCore now owns model execution consistently, with legacy execution and
+  validation paths removed.
+- Session delegation carries the user's goal, input files, and explicit
+  constraints without inventing font, layout, verification, or toolchain rules.
+- Document creation, append, and conversion finish when the Tool succeeds;
+  open-ended read, repair, and re-export loops are no longer the default.
+- Word, PowerPoint, and Excel use one branded Office template system; Word
+  covers and tables of contents are separated, and table text inherits the body
+  font.
+- PDF, PPTX, DOCX, Excel, and Mermaid previews have consistent type routing,
+  with separate Mermaid handling for interactive preview and export.
+- Native Excel Tools cover scoped reads and writes, append operations, tables,
+  charts, recalculation, and PDF export without inlining complete workbooks.
+- `fs_search_in_text` handles search within one text file, while cross-file
+  retrieval uses a Session-scoped index Tool.
+- Runtime Assets now synchronize, download, install, and update Catalog packages
+  automatically, switching `current` atomically while retaining manual controls.
+- Session and administration pages share more components and reduce unnecessary
+  rendering across common workflows.
 
 The release supports:
 
@@ -62,7 +62,7 @@ The release supports:
 - macOS AMD64
 - macOS ARM64
 
-See the [release notes](changelog/v0.0.13.beta.md) for user-facing changes and
+See the [release notes](changelog/v0.0.15.beta.md) for user-facing changes and
 upgrade notes.
 
 ## Install
@@ -86,13 +86,13 @@ for deployment requirements and first-time system setup.
 ## Manual Download
 
 Release assets are available from [GitHub Releases](https://github.com/coffeehc/xagent-releases/releases).
-The `v0.0.13.beta` platform packages are:
+The `v0.0.15.beta` platform packages are:
 
 ```text
-xagent-v0.0.13.beta-linux-amd64.tar.gz
-xagent-v0.0.13.beta-linux-arm64.tar.gz
-xagent-v0.0.13.beta-darwin-amd64.tar.gz
-xagent-v0.0.13.beta-darwin-arm64.tar.gz
+xagent-v0.0.15.beta-linux-amd64.tar.gz
+xagent-v0.0.15.beta-linux-arm64.tar.gz
+xagent-v0.0.15.beta-darwin-amd64.tar.gz
+xagent-v0.0.15.beta-darwin-arm64.tar.gz
 ```
 
 The release also provides:

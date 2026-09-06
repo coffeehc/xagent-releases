@@ -4,7 +4,7 @@
 
 本仓库用于发布 xAgent Server 官方二进制版本，仅包含发布包、校验文件、版本元数据和授权文件，不包含 xAgent 源代码。
 
-当前版本：[xAgent v0.0.13.beta](https://github.com/coffeehc/xagent-releases/releases/tag/v0.0.13.beta)
+当前版本：[xAgent v0.0.15.beta](https://github.com/coffeehc/xagent-releases/releases/tag/v0.0.15.beta)
 
 使用文档：
 
@@ -21,20 +21,19 @@ xAgent 既是员工统一使用 AI 的入口，也是企业统一管理 AI 的�
 
 ![xAgent 仪表板](assets/xagent-dashboard-zh.webp)
 
-## xAgent v0.0.13.beta
+## xAgent v0.0.15.beta
 
 本测试版重点更新：
 
-- 新增原生 HTTP 二进制下载、图片转换，以及更完整的 Word 文档检查和更新流程。
-- CLI 使用当前 Session 的规范 workspace 工作目录，Tool 路径参数统一回正，模型可直接使用相对路径而不再依赖 `$XAGENT_WORKSPACE` 前缀。
-- 字体、运行时资产和执行环境使用统一的就绪检查，在 Tool 执行前提供明确阻断原因。
-- 收口 HTTP 首字节、沙箱失败和 Tool 输出分类，减少可恢复问题产生的平台异常噪音。
-- 删除 `/refresh_messages` 命令，消息自动同步和重连恢复继续作为事实来源。
-- Token 用量图表的坐标轴和提示值统一使用紧凑格式，趋势对比更清晰。
-- 无证书时直接进入免费版，固定限制为 2 用户、30 会话、1 WorkGroup、5 个 Connector VChannel 和 5 个定时任务。
-- 历史 v2 `free` 与 v1 `temporary` 证书会自动删除；License Server 仅签发企业版证书。
-- 继续支持 Connector Protocol 4.3、多资源路由、目录式 Connector Skill 和独立文件传输 Profile。
-- Connector 推荐版本更新为 WeChat `0.0.12`、Telegram `0.0.13`、Feishu `0.0.12`、Database `0.0.6` 和 SSH `0.0.8`。
+- AgentCore 统一负责模型执行，并删除切换后遗留的旧执行与校验路径。
+- Session 派工只传递用户目标、输入文件和明确约束，不再自行补充字体、版式、质量检查或工具链要求。
+- 文档创建、追加和格式转换在 Tool 成功后即可结束，不再默认反复读取、修复和重新导出。
+- Word、PowerPoint 和 Excel 统一使用品牌 Office 模板；Word 封面与目录分页，表格正文继承正文字体。
+- PDF、PPTX、DOCX、Excel 和 Mermaid 使用一致的预览类型路由，并区分 Mermaid 交互预览与导出渲染。
+- 原生 Excel Tool 支持按范围读写、追加、表格、图表、重算和 PDF 导出，不再内联整份工作簿内容。
+- 单文件搜索使用 `fs_search_in_text`，跨文件检索使用限定在当前 Session 文件范围内的索引 Tool。
+- Runtime Assets 自动同步、下载、安装和更新 Catalog 软件包，原子切换 `current`，同时保留手工操作入口。
+- Session 和管理页面进一步复用公共组件，减少常用流程中的无效渲染。
 
 支持的平台：
 
@@ -43,7 +42,7 @@ xAgent 既是员工统一使用 AI 的入口，也是企业统一管理 AI 的�
 - macOS AMD64
 - macOS ARM64
 
-完整功能变化和升级说明见[本版更新日志](changelog/v0.0.13.beta.md)。
+完整功能变化和升级说明见[本版更新日志](changelog/v0.0.15.beta.md)。
 
 ## 安装
 
@@ -59,13 +58,13 @@ curl -fsSL https://downloads.xagent.xiagaogao.com/scripts/install.sh | bash
 
 ## 手动下载
 
-发布文件可从 [GitHub Releases](https://github.com/coffeehc/xagent-releases/releases) 下载。`v0.0.13.beta` 提供以下平台包：
+发布文件可从 [GitHub Releases](https://github.com/coffeehc/xagent-releases/releases) 下载。`v0.0.15.beta` 提供以下平台包：
 
 ```text
-xagent-v0.0.13.beta-linux-amd64.tar.gz
-xagent-v0.0.13.beta-linux-arm64.tar.gz
-xagent-v0.0.13.beta-darwin-amd64.tar.gz
-xagent-v0.0.13.beta-darwin-arm64.tar.gz
+xagent-v0.0.15.beta-linux-amd64.tar.gz
+xagent-v0.0.15.beta-linux-arm64.tar.gz
+xagent-v0.0.15.beta-darwin-amd64.tar.gz
+xagent-v0.0.15.beta-darwin-arm64.tar.gz
 ```
 
 Release 同时提供：
