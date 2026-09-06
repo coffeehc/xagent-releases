@@ -52,6 +52,10 @@ This beta release focuses on:
   retrieval uses a Session-scoped index Tool.
 - Runtime Assets now synchronize, download, install, and update Catalog packages
   automatically, switching `current` atomically while retaining manual controls.
+- Token estimation is calibrated for digit-heavy document content, with
+  Provider-confirmed context overflow recovery as a fallback.
+- Excel previews avoid repeated row loading and use a bounded, padded grid
+  viewport instead of filling the entire preview window.
 - Session and administration pages share more components and reduce unnecessary
   rendering across common workflows.
 
