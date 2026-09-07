@@ -54,8 +54,13 @@ This beta release focuses on:
   automatically, switching `current` atomically while retaining manual controls.
 - Token estimation is calibrated for digit-heavy document content, with
   Provider-confirmed context overflow recovery as a fallback.
-- Excel previews avoid repeated row loading and use a bounded, padded grid
-  viewport instead of filling the entire preview window.
+- Output-limit recovery now preserves streamed assistant content, records a
+  system interruption event, and continues once from a stable checkpoint
+  without executing truncated Tool calls.
+- Excel previews avoid repeated row loading, fill the padded available area,
+  and render blank spreadsheet cells with selection, resizing, and copy support.
+- Session task lists start collapsed and show progress, the current task, and
+  its animated live status in the header.
 - Session and administration pages share more components and reduce unnecessary
   rendering across common workflows.
 
