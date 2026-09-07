@@ -6,14 +6,14 @@ This repository distributes official xAgent Server binary releases. It contains
 release artifacts, checksums, metadata, and licensing documents, but no xAgent
 source code.
 
-Current release: [xAgent v0.0.15.beta](https://github.com/coffeehc/xagent-releases/releases/tag/v0.0.15.beta)
+Current release: [xAgent v0.0.16.beta](https://github.com/coffeehc/xagent-releases/releases/tag/v0.0.16.beta)
 
 Documentation:
 
 - [xAgent Documentation](https://xagent.xiagaogao.com/en/)
 - [Start Installing xAgent](https://xagent.xiagaogao.com/en/docs/getting-started/install/)
 - [xAgent Product Overview](https://xagent.xiagaogao.com/en/docs/getting-started/what-is-xagent/)
-- [What Is a Connector?](https://xagent.xiagaogao.com/en/docs/getting-started/what-is-connector/)
+- [AgentPlugins](https://xagent.xiagaogao.com/en/docs/user-guide/agent-plugins/)
 
 ## What Is xAgent?
 
@@ -31,38 +31,29 @@ xAgent does not grant users broader access.
 
 ![xAgent dashboard](assets/xagent-dashboard-en.webp)
 
-## xAgent v0.0.15.beta
+## xAgent v0.0.16.beta
 
 This beta release focuses on:
 
-- AgentCore now owns model execution consistently, with legacy execution and
-  validation paths removed.
-- Session delegation carries the user's goal, input files, and explicit
-  constraints without inventing font, layout, verification, or toolchain rules.
-- Document creation, append, and conversion finish when the Tool succeeds;
-  open-ended read, repair, and re-export loops are no longer the default.
-- Word, PowerPoint, and Excel use one branded Office template system; Word
-  covers and tables of contents are separated, and table text inherits the body
-  font.
-- PDF, PPTX, DOCX, Excel, and Mermaid previews have consistent type routing,
-  with separate Mermaid handling for interactive preview and export.
-- Native Excel Tools cover scoped reads and writes, append operations, tables,
-  charts, recalculation, and PDF export without inlining complete workbooks.
-- `fs_search_in_text` handles search within one text file, while cross-file
-  retrieval uses a Session-scoped index Tool.
-- Runtime Assets now synchronize, download, install, and update Catalog packages
-  automatically, switching `current` atomically while retaining manual controls.
-- Token estimation is calibrated for digit-heavy document content, with
-  Provider-confirmed context overflow recovery as a fallback.
-- Output-limit recovery now preserves streamed assistant content, records a
-  system interruption event, and continues once from a stable checkpoint
-  without executing truncated Tool calls.
-- Excel previews avoid repeated row loading, fill the padded available area,
-  and render blank spreadsheet cells with selection, resizing, and copy support.
-- Session task lists start collapsed and show progress, the current task, and
-  its animated live status in the header.
-- Session and administration pages share more components and reduce unnecessary
-  rendering across common workflows.
+- Connector has been replaced throughout xAgent by AgentPlugin while preserving
+  the established integration logic and business protocol semantics.
+- Administrators manage AgentPlugin Connectors in Plugin Management; users work
+  only with their own Channels through Plugin Connections.
+- The public descriptor is now `AgentPluginDescriptor` with schema
+  `xagent.agentplugin/v2`, and official integrations use AgentPlugin binaries,
+  services, configuration roots, installation paths, and R2 packages.
+- SQLite and PostgreSQL migrate existing plugin registrations, Channels,
+  VChannels, and Session purpose facts to AgentPlugin tables and namespaces.
+- Linux upgrades detect installed legacy components from `0.0.16.beta`, preserve
+  their full configuration and data directories, start the replacement
+  AgentPlugin, and remove the old service only after a successful switch.
+- A failed component migration restores the previous directory, configuration,
+  binary, and service; components that were not installed remain absent.
+- A2A Client adds remote Agent discovery, authenticated task operations,
+  streaming with polling fallback, persistent monitoring, an inbox, Artifacts,
+  Session delivery, and usage statistics.
+- Enterprise licenses can enforce a maximum xAgent version and now include
+  AgentPlugin Channel and A2A connection capacity.
 
 The release supports:
 
@@ -71,7 +62,7 @@ The release supports:
 - macOS AMD64
 - macOS ARM64
 
-See the [release notes](changelog/v0.0.15.beta.md) for user-facing changes and
+See the [release notes](changelog/v0.0.16.beta.md) for user-facing changes and
 upgrade notes.
 
 ## Install
@@ -84,24 +75,24 @@ curl -fsSL https://downloads.xagent.xiagaogao.com/scripts/install.sh | bash
 
 The installer detects the platform, downloads and verifies the matching
 package, installs or upgrades xAgent, and can optionally install supported
-Connectors. Debian Linux with systemd is recommended for long-running server
+AgentPlugins. Debian Linux with systemd is recommended for long-running server
 deployments. Windows is not currently recommended because it cannot provide the
 same managed script sandbox boundary.
 
 Before upgrading, back up the xAgent configuration, database, workspaces, and
-Connector state. See the [installation guide](https://xagent.xiagaogao.com/en/docs/getting-started/install/)
+AgentPlugin state. See the [installation guide](https://xagent.xiagaogao.com/en/docs/getting-started/install/)
 for deployment requirements and first-time system setup.
 
 ## Manual Download
 
 Release assets are available from [GitHub Releases](https://github.com/coffeehc/xagent-releases/releases).
-The `v0.0.15.beta` platform packages are:
+The `v0.0.16.beta` platform packages are:
 
 ```text
-xagent-v0.0.15.beta-linux-amd64.tar.gz
-xagent-v0.0.15.beta-linux-arm64.tar.gz
-xagent-v0.0.15.beta-darwin-amd64.tar.gz
-xagent-v0.0.15.beta-darwin-arm64.tar.gz
+xagent-v0.0.16.beta-linux-amd64.tar.gz
+xagent-v0.0.16.beta-linux-arm64.tar.gz
+xagent-v0.0.16.beta-darwin-amd64.tar.gz
+xagent-v0.0.16.beta-darwin-arm64.tar.gz
 ```
 
 The release also provides:
