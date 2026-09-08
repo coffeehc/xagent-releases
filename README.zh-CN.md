@@ -27,7 +27,8 @@ xAgent 既是员工统一使用 AI 的入口，也是企业统一管理 AI 的�
 
 - xAgent 内原 Connector 能力整体升级为 AgentPlugin，保留原有接入逻辑和业务协议语义。
 - 管理员在“插件管理”中管理 AgentPlugin Connector，用户只在“插件连接”中管理自己的 Channel。
-- 公共描述对象升级为 `AgentPluginDescriptor`，schema 为 `xagent.agentplugin/v2`；官方插件统一使用新的程序、服务、配置根键、安装目录和 R2 制品。
+- 公共描述对象升级为 `AgentPluginDescriptor`，schema 为 `xagent.agent-plugin/descriptor/v2`；官方插件统一使用新的程序、服务、配置根键、安装目录和 R2 制品。
+- 显式暂停计划会跨任务边界持久生效，在用户明确要求继续前不会自动启动下一项任务。
 - SQLite 与 PostgreSQL 会把已有插件接入、Channel、VChannel 和 Session purpose 迁移到 AgentPlugin 表与命名空间。
 - 从 `0.0.16.beta` 起，Linux 升级会探测已经安装的旧组件，保留完整配置和数据目录，启动替代 AgentPlugin 后才注销旧服务。
 - 组件迁移失败时恢复原目录、配置、程序和服务；原先没有安装的组件不会被补装。

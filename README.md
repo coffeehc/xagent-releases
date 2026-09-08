@@ -40,8 +40,10 @@ This beta release focuses on:
 - Administrators manage AgentPlugin Connectors in Plugin Management; users work
   only with their own Channels through Plugin Connections.
 - The public descriptor is now `AgentPluginDescriptor` with schema
-  `xagent.agentplugin/v2`, and official integrations use AgentPlugin binaries,
+  `xagent.agent-plugin/descriptor/v2`, and official integrations use AgentPlugin binaries,
   services, configuration roots, installation paths, and R2 packages.
+- Explicit plan pauses persist across task boundaries and prevent the next task
+  from starting until the user explicitly resumes the plan.
 - SQLite and PostgreSQL migrate existing plugin registrations, Channels,
   VChannels, and Session purpose facts to AgentPlugin tables and namespaces.
 - Linux upgrades detect installed legacy components from `0.0.16.beta`, preserve
