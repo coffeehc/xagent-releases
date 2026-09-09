@@ -6,7 +6,7 @@ This repository distributes official xAgent Server binary releases. It contains
 release artifacts, checksums, metadata, and licensing documents, but no xAgent
 source code.
 
-Current release: [xAgent v0.0.16.beta](https://github.com/coffeehc/xagent-releases/releases/tag/v0.0.16.beta)
+Current release: [xAgent v0.0.17.beta](https://github.com/coffeehc/xagent-releases/releases/tag/v0.0.17.beta)
 
 Documentation:
 
@@ -31,31 +31,24 @@ xAgent does not grant users broader access.
 
 ![xAgent dashboard](assets/xagent-dashboard-en.webp)
 
-## xAgent v0.0.16.beta
+## xAgent v0.0.17.beta
 
 This beta release focuses on:
 
-- Connector has been replaced throughout xAgent by AgentPlugin while preserving
-  the established integration logic and business protocol semantics.
-- Administrators manage AgentPlugin Connectors in Plugin Management; users work
-  only with their own Channels through Plugin Connections.
-- The public descriptor is now `AgentPluginDescriptor` with schema
-  `xagent.agent-plugin/descriptor/v2`, and official integrations use AgentPlugin binaries,
-  services, configuration roots, installation paths, and R2 packages.
-- Explicit plan pauses persist across task boundaries and prevent the next task
-  from starting until the user explicitly resumes the plan.
-- SQLite and PostgreSQL migrate existing plugin registrations, Channels,
-  VChannels, and Session purpose facts to AgentPlugin tables and namespaces.
-- Linux upgrades detect installed legacy components from `0.0.16.beta`, preserve
-  their full configuration and data directories, start the replacement
-  AgentPlugin, and remove the old service only after a successful switch.
-- A failed component migration restores the previous directory, configuration,
-  binary, and service; components that were not installed remain absent.
-- A2A Client adds remote Agent discovery, authenticated task operations,
-  streaming with polling fallback, persistent monitoring, an inbox, Artifacts,
-  Session delivery, and usage statistics.
-- Enterprise licenses can enforce a maximum xAgent version and now include
-  AgentPlugin Channel and A2A connection capacity.
+- AgentPlugin Cards can declare Tool icons and safe summary fields, and xAgent
+  validates those declarations against each Tool's public schema before display.
+- Session timelines now use a unified message-provenance projection for
+  AgentPlugin, Trigger, cross-Session, and approval-decision messages.
+- Retryable Provider stream failures before the first valid event are retried
+  without replaying streams that have already produced output.
+- User-facing and administrator diagnostics now distinguish Provider failures,
+  invalid input, policy rejection, and malformed model Tool calls.
+- AgentPlugin Card revision checks use the original Card snapshot, with data-plane
+  fallback to protocol `4.3` or `4.0` when declared by the plugin.
+- The official WeChat `0.0.13`, Telegram `0.0.14`, Feishu `0.0.13`, Database
+  `0.0.7`, SSH `0.0.9`, and DingTalk `0.0.2` AgentPlugins are published together.
+- DingTalk is now included in the public AgentPlugin catalog and four-platform
+  installation and upgrade flow.
 
 The release supports:
 
@@ -64,7 +57,7 @@ The release supports:
 - macOS AMD64
 - macOS ARM64
 
-See the [release notes](changelog/v0.0.16.beta.md) for user-facing changes and
+See the [release notes](changelog/v0.0.17.beta.md) for user-facing changes and
 upgrade notes.
 
 ## Install
@@ -88,13 +81,13 @@ for deployment requirements and first-time system setup.
 ## Manual Download
 
 Release assets are available from [GitHub Releases](https://github.com/coffeehc/xagent-releases/releases).
-The `v0.0.16.beta` platform packages are:
+The `v0.0.17.beta` platform packages are:
 
 ```text
-xagent-v0.0.16.beta-linux-amd64.tar.gz
-xagent-v0.0.16.beta-linux-arm64.tar.gz
-xagent-v0.0.16.beta-darwin-amd64.tar.gz
-xagent-v0.0.16.beta-darwin-arm64.tar.gz
+xagent-v0.0.17.beta-linux-amd64.tar.gz
+xagent-v0.0.17.beta-linux-arm64.tar.gz
+xagent-v0.0.17.beta-darwin-amd64.tar.gz
+xagent-v0.0.17.beta-darwin-arm64.tar.gz
 ```
 
 The release also provides:
