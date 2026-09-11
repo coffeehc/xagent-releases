@@ -6,7 +6,7 @@ This repository distributes official xAgent Server binary releases. It contains
 release artifacts, checksums, metadata, and licensing documents, but no xAgent
 source code.
 
-Current release: [xAgent v0.0.17.beta](https://github.com/coffeehc/xagent-releases/releases/tag/v0.0.17.beta)
+Current release: [xAgent v0.0.18.beta](https://github.com/coffeehc/xagent-releases/releases/tag/v0.0.18.beta)
 
 Documentation:
 
@@ -31,24 +31,24 @@ xAgent does not grant users broader access.
 
 ![xAgent dashboard](assets/xagent-dashboard-en.webp)
 
-## xAgent v0.0.17.beta
+## xAgent v0.0.18.beta
 
 This beta release focuses on:
 
-- AgentPlugin Cards can declare Tool icons and safe summary fields, and xAgent
-  validates those declarations against each Tool's public schema before display.
-- Session timelines now use a unified message-provenance projection for
-  AgentPlugin, Trigger, cross-Session, and approval-decision messages.
-- Retryable Provider stream failures before the first valid event are retried
-  without replaying streams that have already produced output.
-- User-facing and administrator diagnostics now distinguish Provider failures,
-  invalid input, policy rejection, and malformed model Tool calls.
-- AgentPlugin Card revision checks use the original Card snapshot, with data-plane
-  fallback to protocol `4.3` or `4.0` when declared by the plugin.
-- The official WeChat `0.0.13`, Telegram `0.0.14`, Feishu `0.0.13`, Database
-  `0.0.7`, SSH `0.0.9`, and DingTalk `0.0.2` AgentPlugins are published together.
-- DingTalk is now included in the public AgentPlugin catalog and four-platform
-  installation and upgrade flow.
+- OpenAI-compatible Provider settings can load `/api/models` candidates while
+  keeping the upstream model name editable.
+- Common context, output, reasoning, and thinking settings are editable as
+  dedicated fields while Raw JSON retains Provider-specific extensions.
+- Provider-reported usage now takes precedence over estimates, and an omitted
+  usage response remains distinct from an explicitly reported zero.
+- Tool Schema compatibility, streamed response collection, and argument
+  normalization now share AgentCore's unified implementation.
+- Tool Card summaries may contain more than four short parts while retaining
+  selector validation and final text-length limits.
+- Empty user upload roots now render as empty directories instead of reporting
+  that `uploads` does not exist.
+- This release updates xAgent Server only; official AgentPlugin artifacts are
+  unchanged.
 
 The release supports:
 
@@ -57,7 +57,7 @@ The release supports:
 - macOS AMD64
 - macOS ARM64
 
-See the [release notes](changelog/v0.0.17.beta.md) for user-facing changes and
+See the [release notes](changelog/v0.0.18.beta.md) for user-facing changes and
 upgrade notes.
 
 ## Install
@@ -81,13 +81,13 @@ for deployment requirements and first-time system setup.
 ## Manual Download
 
 Release assets are available from [GitHub Releases](https://github.com/coffeehc/xagent-releases/releases).
-The `v0.0.17.beta` platform packages are:
+The `v0.0.18.beta` platform packages are:
 
 ```text
-xagent-v0.0.17.beta-linux-amd64.tar.gz
-xagent-v0.0.17.beta-linux-arm64.tar.gz
-xagent-v0.0.17.beta-darwin-amd64.tar.gz
-xagent-v0.0.17.beta-darwin-arm64.tar.gz
+xagent-v0.0.18.beta-linux-amd64.tar.gz
+xagent-v0.0.18.beta-linux-arm64.tar.gz
+xagent-v0.0.18.beta-darwin-amd64.tar.gz
+xagent-v0.0.18.beta-darwin-arm64.tar.gz
 ```
 
 The release also provides:

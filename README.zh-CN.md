@@ -4,7 +4,7 @@
 
 本仓库用于发布 xAgent Server 官方二进制版本，仅包含发布包、校验文件、版本元数据和授权文件，不包含 xAgent 源代码。
 
-当前版本：[xAgent v0.0.17.beta](https://github.com/coffeehc/xagent-releases/releases/tag/v0.0.17.beta)
+当前版本：[xAgent v0.0.18.beta](https://github.com/coffeehc/xagent-releases/releases/tag/v0.0.18.beta)
 
 使用文档：
 
@@ -21,17 +21,17 @@ xAgent 既是员工统一使用 AI 的入口，也是企业统一管理 AI 的�
 
 ![xAgent 仪表板](assets/xagent-dashboard-zh.webp)
 
-## xAgent v0.0.17.beta
+## xAgent v0.0.18.beta
 
 本测试版重点更新：
 
-- AgentPlugin Card 可以声明工具图标和安全摘要字段，xAgent 会依据工具公开 schema 校验后再用于展示。
-- 会话时间线统一投影 AgentPlugin、Trigger、跨会话消息和审批决定的真实来源。
-- Provider 在首个有效事件前发生可重试流中断时会自动重试；已经产生输出后不会重放。
-- 用户提示和管理员异常记录会区分 Provider 失败、输入不合法、策略拒绝和模型工具调用格式错误。
-- AgentPlugin Card revision 改用原始 Card 快照计算，并可按插件声明回退到协议 `4.3` 或 `4.0`。
-- 同步发布微信 `0.0.13`、Telegram `0.0.14`、飞书 `0.0.13`、Database `0.0.7`、SSH `0.0.9` 和钉钉 `0.0.2`。
-- 钉钉首次进入公开 AgentPlugin 目录以及四个平台的安装和升级链路。
+- OpenAI 兼容 Provider 可以读取 `/api/models` 候选列表，同时保留手工输入真实模型名的能力。
+- 上下文、最大输出、推理强度、思考开关、思考 token 和思考温度改为独立常用字段，Raw JSON 继续保留 Provider 扩展参数。
+- 会话用量优先使用 Provider 实测值，并区分“未返回 usage”与“明确返回 0”。
+- Tool Schema 兼容、流式响应聚合和工具参数回正统一使用 AgentCore 实现。
+- Tool Card 摘要可以包含超过 4 个短片段，同时保留 selector 校验与最终文本长度限制。
+- 空的用户上传目录现在显示空列表，不再提示 `uploads 不存在`。
+- 本版本只更新 xAgent Server，官方 AgentPlugin 制品保持不变。
 
 支持的平台：
 
@@ -40,7 +40,7 @@ xAgent 既是员工统一使用 AI 的入口，也是企业统一管理 AI 的�
 - macOS AMD64
 - macOS ARM64
 
-完整功能变化和升级说明见[本版更新日志](changelog/v0.0.17.beta.md)。
+完整功能变化和升级说明见[本版更新日志](changelog/v0.0.18.beta.md)。
 
 ## 安装
 
@@ -56,13 +56,13 @@ curl -fsSL https://downloads.xagent.xiagaogao.com/scripts/install.sh | bash
 
 ## 手动下载
 
-发布文件可从 [GitHub Releases](https://github.com/coffeehc/xagent-releases/releases) 下载。`v0.0.17.beta` 提供以下平台包：
+发布文件可从 [GitHub Releases](https://github.com/coffeehc/xagent-releases/releases) 下载。`v0.0.18.beta` 提供以下平台包：
 
 ```text
-xagent-v0.0.17.beta-linux-amd64.tar.gz
-xagent-v0.0.17.beta-linux-arm64.tar.gz
-xagent-v0.0.17.beta-darwin-amd64.tar.gz
-xagent-v0.0.17.beta-darwin-arm64.tar.gz
+xagent-v0.0.18.beta-linux-amd64.tar.gz
+xagent-v0.0.18.beta-linux-arm64.tar.gz
+xagent-v0.0.18.beta-darwin-amd64.tar.gz
+xagent-v0.0.18.beta-darwin-arm64.tar.gz
 ```
 
 Release 同时提供：
