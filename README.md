@@ -6,7 +6,7 @@ This repository distributes official xAgent Server binary releases. It contains
 release artifacts, checksums, metadata, and licensing documents, but no xAgent
 source code.
 
-Current release: [xAgent v0.0.18.beta](https://github.com/coffeehc/xagent-releases/releases/tag/v0.0.18.beta)
+Current release: [xAgent v0.0.19.beta](https://github.com/coffeehc/xagent-releases/releases/tag/v0.0.19.beta)
 
 Documentation:
 
@@ -31,22 +31,22 @@ xAgent does not grant users broader access.
 
 ![xAgent dashboard](assets/xagent-dashboard-en.webp)
 
-## xAgent v0.0.18.beta
+## xAgent v0.0.19.beta
 
 This beta release focuses on:
 
-- OpenAI-compatible Provider settings can load `/api/models` candidates while
-  keeping the upstream model name editable.
-- Common context, output, reasoning, and thinking settings are editable as
-  dedicated fields while Raw JSON retains Provider-specific extensions.
-- Provider-reported usage now takes precedence over estimates, and an omitted
-  usage response remains distinct from an explicitly reported zero.
-- Tool Schema compatibility, streamed response collection, and argument
-  normalization now share AgentCore's unified implementation.
-- Tool Card summaries may contain more than four short parts while retaining
-  selector validation and final text-length limits.
-- Empty user upload roots now render as empty directories instead of reporting
-  that `uploads` does not exist.
+- Users can create expiring public links for managed files and review, copy, or
+  revoke them from the new File Sharing page.
+- External visitors can open watermarked previews without signing in. Download
+  permission is controlled per link and always refers to the original file.
+- Administrators control the allowed file scope, maximum lifetime, download
+  capability, and public Base URL. Sharing remains disabled by default.
+- Share and download totals are grouped by file, with per-link status and
+  per-visit audit records available in details.
+- Session interruption, model reconnection, execution state, and runtime error
+  notices now follow clearer server-side lifecycle semantics.
+- Runtime Assets catalogs use a persistent local snapshot and can fall back to
+  the current ready installation when the remote catalog is unavailable.
 - This release updates xAgent Server only; official AgentPlugin artifacts are
   unchanged.
 
@@ -57,7 +57,7 @@ The release supports:
 - macOS AMD64
 - macOS ARM64
 
-See the [release notes](changelog/v0.0.18.beta.md) for user-facing changes and
+See the [release notes](changelog/v0.0.19.beta.md) for user-facing changes and
 upgrade notes.
 
 ## Install
@@ -81,13 +81,13 @@ for deployment requirements and first-time system setup.
 ## Manual Download
 
 Release assets are available from [GitHub Releases](https://github.com/coffeehc/xagent-releases/releases).
-The `v0.0.18.beta` platform packages are:
+The `v0.0.19.beta` platform packages are:
 
 ```text
-xagent-v0.0.18.beta-linux-amd64.tar.gz
-xagent-v0.0.18.beta-linux-arm64.tar.gz
-xagent-v0.0.18.beta-darwin-amd64.tar.gz
-xagent-v0.0.18.beta-darwin-arm64.tar.gz
+xagent-v0.0.19.beta-linux-amd64.tar.gz
+xagent-v0.0.19.beta-linux-arm64.tar.gz
+xagent-v0.0.19.beta-darwin-amd64.tar.gz
+xagent-v0.0.19.beta-darwin-arm64.tar.gz
 ```
 
 The release also provides:
