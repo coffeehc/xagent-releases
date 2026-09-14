@@ -43,6 +43,10 @@ This beta release focuses on:
   capability, and public Base URL. Sharing remains disabled by default.
 - Share and download totals are grouped by file, with per-link status and
   per-visit audit records available in details.
+- The File Sharing list uses the shared table component, supports manual
+  refresh, and correctly handles empty and multi-file results.
+- The wider details drawer keeps links, download permissions, and audit records
+  fully visible.
 - Session interruption, model reconnection, execution state, and runtime error
   notices now follow clearer server-side lifecycle semantics.
 - Runtime Assets catalogs use a persistent local snapshot and can fall back to
