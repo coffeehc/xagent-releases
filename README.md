@@ -6,7 +6,7 @@ This repository distributes official xAgent Server binary releases. It contains
 release artifacts, checksums, metadata, and licensing documents, but no xAgent
 source code.
 
-Current release: [xAgent v0.0.19.beta](https://github.com/coffeehc/xagent-releases/releases/tag/v0.0.19.beta)
+Current release: [xAgent v0.0.20.beta](https://github.com/coffeehc/xagent-releases/releases/tag/v0.0.20.beta)
 
 Documentation:
 
@@ -31,26 +31,20 @@ xAgent does not grant users broader access.
 
 ![xAgent dashboard](assets/xagent-dashboard-en.webp)
 
-## xAgent v0.0.19.beta
+## xAgent v0.0.20.beta
 
 This beta release focuses on:
 
-- Users can create expiring public links for managed files and review, copy, or
-  revoke them from the new File Sharing page.
-- External visitors can open watermarked previews without signing in. Download
-  permission is controlled per link and always refers to the original file.
-- Administrators control the allowed file scope, maximum lifetime, download
-  capability, and public Base URL. Sharing remains disabled by default.
-- Share and download totals are grouped by file, with per-link status and
-  per-visit audit records available in details.
-- The File Sharing list uses the shared table component, supports manual
-  refresh, and correctly handles empty and multi-file results.
-- The wider details drawer keeps links, download permissions, and audit records
-  fully visible.
-- Session interruption, model reconnection, execution state, and runtime error
-  notices now follow clearer server-side lifecycle semantics.
-- Runtime Assets catalogs use a persistent local snapshot and can fall back to
-  the current ready installation when the remote catalog is unavailable.
+- Process sandbox runtime mounts, writable paths, hidden paths, and working
+  directories are more reliable, and files produced by process tools are
+  committed back to the workspace.
+- Session drafts remain visible within the current workspace and process sandbox.
+- Word and PowerPoint documents and PDF previews use a consistent Office font
+  and missing-glyph fallback policy.
+- The PowerPoint builder plans the audience question and information sequence
+  before visual styling. It now offers six focused presentation scenarios and
+  slide-composition guidance.
+- Office tool licensing is unchanged.
 - This release updates xAgent Server only; official AgentPlugin artifacts are
   unchanged.
 
@@ -61,7 +55,7 @@ The release supports:
 - macOS AMD64
 - macOS ARM64
 
-See the [release notes](changelog/v0.0.19.beta.md) for user-facing changes and
+See the [release notes](changelog/v0.0.20.beta.md) for user-facing changes and
 upgrade notes.
 
 ## Install
@@ -85,13 +79,13 @@ for deployment requirements and first-time system setup.
 ## Manual Download
 
 Release assets are available from [GitHub Releases](https://github.com/coffeehc/xagent-releases/releases).
-The `v0.0.19.beta` platform packages are:
+The `v0.0.20.beta` platform packages are:
 
 ```text
-xagent-v0.0.19.beta-linux-amd64.tar.gz
-xagent-v0.0.19.beta-linux-arm64.tar.gz
-xagent-v0.0.19.beta-darwin-amd64.tar.gz
-xagent-v0.0.19.beta-darwin-arm64.tar.gz
+xagent-v0.0.20.beta-linux-amd64.tar.gz
+xagent-v0.0.20.beta-linux-arm64.tar.gz
+xagent-v0.0.20.beta-darwin-amd64.tar.gz
+xagent-v0.0.20.beta-darwin-arm64.tar.gz
 ```
 
 The release also provides:

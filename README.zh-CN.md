@@ -4,7 +4,7 @@
 
 本仓库用于发布 xAgent Server 官方二进制版本，仅包含发布包、校验文件、版本元数据和授权文件，不包含 xAgent 源代码。
 
-当前版本：[xAgent v0.0.19.beta](https://github.com/coffeehc/xagent-releases/releases/tag/v0.0.19.beta)
+当前版本：[xAgent v0.0.20.beta](https://github.com/coffeehc/xagent-releases/releases/tag/v0.0.20.beta)
 
 使用文档：
 
@@ -21,18 +21,15 @@ xAgent 既是员工统一使用 AI 的入口，也是企业统一管理 AI 的�
 
 ![xAgent 仪表板](assets/xagent-dashboard-zh.webp)
 
-## xAgent v0.0.19.beta
+## xAgent v0.0.20.beta
 
 本测试版重点更新：
 
-- 用户可以为受管文件创建限时外链，并在新的“文件分享”页面查看、复制或撤销链接。
-- 外部访问者无需登录即可查看带动态水印的预览；下载权限按链接控制，下载内容明确为原文件。
-- 管理员统一控制可分享文件范围、最长有效期、下载能力和公开 Base URL；升级后默认关闭。
-- 分享次数和下载次数按文件聚合，详情中可查看逐链接状态和逐次访问审计记录。
-- “文件分享”列表复用通用表格、支持手动刷新，并正确处理空列表和多文件结果。
-- 加宽后的详情抽屉可以完整展示分享链接、下载权限和访问审计记录。
-- 会话中断、模型重连、执行状态和运行错误提示采用更清晰的服务端生命周期语义。
-- Runtime Assets catalog 使用持久化本地快照，远端不可用时可回退到当前 ready 安装。
+- 修复进程沙箱运行时目录、写目录、隐藏挂载和工作目录问题，进程工具产物可正确提交到工作区。
+- 会话草稿在当前工作区与进程沙箱中保持一致的可见性。
+- Word、PowerPoint 文档及 PDF 预览采用一致的 Office 字体和缺字回退策略。
+- PowerPoint 演示文稿生成器先规划受众问题与信息顺序，再处理视觉风格；提供六类场景参考和视觉编排指导。
+- Office 工具授权方式不变。
 - 本版本只更新 xAgent Server，官方 AgentPlugin 制品保持不变。
 
 支持的平台：
@@ -42,7 +39,7 @@ xAgent 既是员工统一使用 AI 的入口，也是企业统一管理 AI 的�
 - macOS AMD64
 - macOS ARM64
 
-完整功能变化和升级说明见[本版更新日志](changelog/v0.0.19.beta.md)。
+完整功能变化和升级说明见[本版更新日志](changelog/v0.0.20.beta.md)。
 
 ## 安装
 
@@ -58,13 +55,13 @@ curl -fsSL https://downloads.xagent.xiagaogao.com/scripts/install.sh | bash
 
 ## 手动下载
 
-发布文件可从 [GitHub Releases](https://github.com/coffeehc/xagent-releases/releases) 下载。`v0.0.19.beta` 提供以下平台包：
+发布文件可从 [GitHub Releases](https://github.com/coffeehc/xagent-releases/releases) 下载。`v0.0.20.beta` 提供以下平台包：
 
 ```text
-xagent-v0.0.19.beta-linux-amd64.tar.gz
-xagent-v0.0.19.beta-linux-arm64.tar.gz
-xagent-v0.0.19.beta-darwin-amd64.tar.gz
-xagent-v0.0.19.beta-darwin-arm64.tar.gz
+xagent-v0.0.20.beta-linux-amd64.tar.gz
+xagent-v0.0.20.beta-linux-arm64.tar.gz
+xagent-v0.0.20.beta-darwin-amd64.tar.gz
+xagent-v0.0.20.beta-darwin-arm64.tar.gz
 ```
 
 Release 同时提供：
