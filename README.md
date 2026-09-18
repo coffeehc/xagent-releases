@@ -35,6 +35,16 @@ xAgent does not grant users broader access.
 
 This beta release focuses on:
 
+- A compact conversation navigator with input previews, jumps, and paginated
+  history; newly submitted input brings the latest messages into view.
+- Independently recorded execution rounds show elapsed time and collapse
+  intermediate assistant replies and tool activity while preserving older
+  conversations that have no round records.
+- Long-history message loading avoids cursor encoding errors. Capability
+  orchestration, agent-definition generation, and OCR retry invalid model
+  output with backoff.
+- Mermaid diagrams adapt to light and dark themes, while exported PNGs use
+  document colors. Built-in document workflows now include acceptance guidance.
 - Process sandbox runtime mounts, writable paths, hidden paths, and working
   directories are more reliable, and files produced by process tools are
   committed back to the workspace.
