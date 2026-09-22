@@ -4,7 +4,7 @@
 
 本仓库用于发布 xAgent Server 官方二进制版本，仅包含发布包、校验文件、版本元数据和授权文件，不包含 xAgent 源代码。
 
-当前版本：[xAgent v0.0.20.beta](https://github.com/coffeehc/xagent-releases/releases/tag/v0.0.20.beta)
+当前版本：[xAgent v0.0.21.beta](https://github.com/coffeehc/xagent-releases/releases/tag/v0.0.21.beta)
 
 使用文档：
 
@@ -21,18 +21,16 @@ xAgent 既是员工统一使用 AI 的入口，也是企业统一管理 AI 的�
 
 ![xAgent 仪表板](assets/xagent-dashboard-zh.webp)
 
-## xAgent v0.0.20.beta
+## xAgent v0.0.21.beta
 
 本测试版重点更新：
 
-- 新增会话缩略导航，可预览、跳转和分页定位用户输入；新输入后回到最新消息。
-- 独立记录执行轮次，展示进行中的已处理时间和完成后的历时；中途助手回复与工具过程默认按轮收起，旧会话不补造轮次。
-- 修复长会话加载时的消息游标编码错误；任务能力编排、智能体定义构建和 OCR 对无效模型输出退避重试。
-- Mermaid 图表适配明暗主题，导出 PNG 使用文档配色；内置文档工作流增加成品验收指引。
-- 修复进程沙箱运行时目录、写目录、隐藏挂载和工作目录问题，进程工具产物可正确提交到工作区。
-- 会话草稿在当前工作区与进程沙箱中保持一致的可见性。
-- Word、PowerPoint 文档及 PDF 预览采用一致的 Office 字体和缺字回退策略。
-- PowerPoint 演示文稿生成器先规划受众问题与信息顺序，再处理视觉风格；提供六类场景参考和视觉编排指导。
+- 固定任务角色改用稳定的 Model Profile ID 引用模型，并迁移、校验旧的模型名配置。
+- 智能体构建、能力编排、OCR、摘要、Memory 和上下文压缩统一使用严格 JSON 与业务 Schema 校验。
+- 长会话压缩使用 90% 请求预算线；模型达到上下文或输出上限时缩小 source 批次重试，未形成净压缩时不推进游标。
+- 公共 Skill 使用 v2 目录和逐 Skill 不可变制品；安装状态直接按当前加载的 Skill 投影，不再保存第二份记录。
+- 会话停止执行后轮次计时同步停止；缩略导航更紧凑，会话列表恢复稳定固定宽度。
+- Agent Role 管理按 profile ID 选择模型；工作编排编辑器可保留当前目录中已不可选但仍被引用的 Skill。
 - Office 工具授权方式不变。
 - 本版本只更新 xAgent Server，官方 AgentPlugin 制品保持不变。
 
@@ -43,7 +41,7 @@ xAgent 既是员工统一使用 AI 的入口，也是企业统一管理 AI 的�
 - macOS AMD64
 - macOS ARM64
 
-完整功能变化和升级说明见[本版更新日志](changelog/v0.0.20.beta.md)。
+完整功能变化和升级说明见[本版更新日志](changelog/v0.0.21.beta.md)。
 
 ## 安装
 
@@ -59,13 +57,13 @@ curl -fsSL https://downloads.xagent.xiagaogao.com/scripts/install.sh | bash
 
 ## 手动下载
 
-发布文件可从 [GitHub Releases](https://github.com/coffeehc/xagent-releases/releases) 下载。`v0.0.20.beta` 提供以下平台包：
+发布文件可从 [GitHub Releases](https://github.com/coffeehc/xagent-releases/releases) 下载。`v0.0.21.beta` 提供以下平台包：
 
 ```text
-xagent-v0.0.20.beta-linux-amd64.tar.gz
-xagent-v0.0.20.beta-linux-arm64.tar.gz
-xagent-v0.0.20.beta-darwin-amd64.tar.gz
-xagent-v0.0.20.beta-darwin-arm64.tar.gz
+xagent-v0.0.21.beta-linux-amd64.tar.gz
+xagent-v0.0.21.beta-linux-arm64.tar.gz
+xagent-v0.0.21.beta-darwin-amd64.tar.gz
+xagent-v0.0.21.beta-darwin-arm64.tar.gz
 ```
 
 Release 同时提供：
