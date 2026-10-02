@@ -6,7 +6,7 @@ This repository distributes official xAgent Server binary releases. It contains
 release artifacts, checksums, metadata, and licensing documents, but no xAgent
 source code.
 
-Current release: [xAgent v0.0.21.beta](https://github.com/coffeehc/xagent-releases/releases/tag/v0.0.21.beta)
+Current release: [xAgent v0.0.22.beta](https://github.com/coffeehc/xagent-releases/releases/tag/v0.0.22.beta)
 
 Documentation:
 
@@ -31,25 +31,22 @@ xAgent does not grant users broader access.
 
 ![xAgent dashboard](assets/xagent-dashboard-en.webp)
 
-## xAgent v0.0.21.beta
+## xAgent v0.0.22.beta
 
 This beta release focuses on:
 
-- Fixed task roles reference models by stable Model Profile ID, including
-  migration and validation for legacy model-name settings.
-- Structured model output uses shared strict JSON and schema validation across
-  agent building, orchestration, OCR, summaries, memory, and compression.
-- Long-conversation compression uses a 90% request-budget threshold, retries
-  bounded source batches on model limits, and never advances a cursor when a
-  candidate produces no net reduction.
-- Public Skills use a v2 catalog with one immutable artifact and manifest per
-  Skill. Installation status is derived from the currently loaded Skill rather
-  than a second persisted record.
-- Session execution timers stop with inactive execution, the conversation
-  minimap is more compact, and the session list uses a stable fixed width.
-- Agent Role administration selects models by profile ID, while the work
-  orchestration editor preserves referenced Skills that are no longer listed.
-- Office tool licensing is unchanged.
+- Database-backed work records combine short summaries with immutable process
+  entries, paginated history, and clickable attachment previews.
+- Periodic work prevents overlapping rounds, retains delivery identities, and
+  supports persistent waits without requiring a Plan/Task.
+- A2A preserves external-action identities, unknown effects, late results, and
+  continuation while bounded tool recovery provides clearer parameter errors.
+- Session archive retains data, stops execution, and releases licensed capacity.
+  Restore checks capacity again; default discovery and sandboxes hide archives.
+- Environment variables replace secret-only management, with immutable encrypted
+  mode, placeholder-only secret queries, on-demand plain values, and save warnings.
+- Fixed text roles retain execution budgets while model request parameters
+  inherit the selected model configuration.
 - This release updates xAgent Server only; official AgentPlugin artifacts are
   unchanged.
 
@@ -60,7 +57,7 @@ The release supports:
 - macOS AMD64
 - macOS ARM64
 
-See the [release notes](changelog/v0.0.21.beta.md) for user-facing changes and
+See the [release notes](changelog/v0.0.22.beta.md) for user-facing changes and
 upgrade notes.
 
 ## Install
@@ -84,13 +81,13 @@ for deployment requirements and first-time system setup.
 ## Manual Download
 
 Release assets are available from [GitHub Releases](https://github.com/coffeehc/xagent-releases/releases).
-The `v0.0.21.beta` platform packages are:
+The `v0.0.22.beta` platform packages are:
 
 ```text
-xagent-v0.0.21.beta-linux-amd64.tar.gz
-xagent-v0.0.21.beta-linux-arm64.tar.gz
-xagent-v0.0.21.beta-darwin-amd64.tar.gz
-xagent-v0.0.21.beta-darwin-arm64.tar.gz
+xagent-v0.0.22.beta-linux-amd64.tar.gz
+xagent-v0.0.22.beta-linux-arm64.tar.gz
+xagent-v0.0.22.beta-darwin-amd64.tar.gz
+xagent-v0.0.22.beta-darwin-arm64.tar.gz
 ```
 
 The release also provides:
