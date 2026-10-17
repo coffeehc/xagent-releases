@@ -6,7 +6,7 @@ This repository distributes official xAgent Server binary releases. It contains
 release artifacts, checksums, metadata, and licensing documents, but no xAgent
 source code.
 
-Current release: [xAgent v0.0.22.beta](https://github.com/coffeehc/xagent-releases/releases/tag/v0.0.22.beta)
+Current release: [xAgent v0.1.0](https://github.com/coffeehc/xagent-releases/releases/tag/v0.1.0)
 
 Documentation:
 
@@ -31,24 +31,16 @@ xAgent does not grant users broader access.
 
 ![xAgent dashboard](assets/xagent-dashboard-en.webp)
 
-## xAgent v0.0.22.beta
+## xAgent v0.1.0
 
-This beta release focuses on:
+This release focuses on:
 
-- Database-backed work records combine short summaries with immutable process
-  entries, paginated history, and clickable attachment previews.
-- Periodic work prevents overlapping rounds, retains delivery identities, and
-  supports persistent waits without requiring a Plan/Task.
-- A2A preserves external-action identities, unknown effects, late results, and
-  continuation while bounded tool recovery provides clearer parameter errors.
-- Session archive retains data, stops execution, and releases licensed capacity.
-  Restore checks capacity again; default discovery and sandboxes hide archives.
-- Environment variables replace secret-only management, with immutable encrypted
-  mode, placeholder-only secret queries, on-demand plain values, and save warnings.
-- Fixed text roles retain execution budgets while model request parameters
-  inherit the selected model configuration.
-- This release updates xAgent Server only; official AgentPlugin artifacts are
-  unchanged.
+- XUI 4.2.18 and the Forest preset across administration and session workspaces.
+- Virtual-team creation, member sessions, shared materials, delegation, and team archives.
+- Automatic archiving of long-unused sessions and clearer task, tool, approval, and index presentation.
+- Shared Web/desktop Cookie-session lifecycles and stronger secret-placeholder and credential boundaries.
+- Input-batch recovery, MCP connections and cancellation, first-byte deadlines, and faster first-screen loading.
+- Server 0.1.0 only; AgentPlugins, the desktop client, and runtime assets keep independent versions.
 
 The release supports:
 
@@ -57,7 +49,7 @@ The release supports:
 - macOS AMD64
 - macOS ARM64
 
-See the [release notes](changelog/v0.0.22.beta.md) for user-facing changes and
+See the [release notes](changelog/v0.1.0.md) for user-facing changes and
 upgrade notes.
 
 ## Install
@@ -81,13 +73,13 @@ for deployment requirements and first-time system setup.
 ## Manual Download
 
 Release assets are available from [GitHub Releases](https://github.com/coffeehc/xagent-releases/releases).
-The `v0.0.22.beta` platform packages are:
+The `v0.1.0` platform packages are:
 
 ```text
-xagent-v0.0.22.beta-linux-amd64.tar.gz
-xagent-v0.0.22.beta-linux-arm64.tar.gz
-xagent-v0.0.22.beta-darwin-amd64.tar.gz
-xagent-v0.0.22.beta-darwin-arm64.tar.gz
+xagent-v0.1.0-linux-amd64.tar.gz
+xagent-v0.1.0-linux-arm64.tar.gz
+xagent-v0.1.0-darwin-amd64.tar.gz
+xagent-v0.1.0-darwin-arm64.tar.gz
 ```
 
 The release also provides:
