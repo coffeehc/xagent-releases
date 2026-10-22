@@ -6,7 +6,7 @@ This repository distributes official xAgent Server binary releases. It contains
 release artifacts, checksums, metadata, and licensing documents, but no xAgent
 source code.
 
-Current release: [xAgent v0.1.0](https://github.com/coffeehc/xagent-releases/releases/tag/v0.1.0)
+Current release: [xAgent v0.1.1](https://github.com/coffeehc/xagent-releases/releases/tag/v0.1.1)
 
 Documentation:
 
@@ -31,16 +31,16 @@ xAgent does not grant users broader access.
 
 ![xAgent dashboard](assets/xagent-dashboard-en.webp)
 
-## xAgent v0.1.0
+## xAgent v0.1.1
 
 This release focuses on:
 
-- XUI 4.2.18 and the Forest preset across administration and session workspaces.
-- Virtual-team creation, member sessions, shared materials, delegation, and team archives.
-- Automatic archiving of long-unused sessions and clearer task, tool, approval, and index presentation.
-- Shared Web/desktop Cookie-session lifecycles and stronger secret-placeholder and credential boundaries.
-- Input-batch recovery, MCP connections and cancellation, first-byte deadlines, and faster first-screen loading.
-- Server 0.1.0 only; AgentPlugins, the desktop client, and runtime assets keep independent versions.
+- More reliable session recovery, with visible retry waits and stop/continue controls.
+- Automatic model connection tests and a configurable 16K default output limit for new models.
+- Faster session-list loading after sign-in and improved long-conversation responsiveness.
+- Clearer approval audit results and trigger execution history.
+- Consistent resizable data columns, fixed action columns, and circular icon backgrounds.
+- Server 0.1.1 only; AgentPlugins, the desktop client, and runtime assets keep independent versions.
 
 The release supports:
 
@@ -49,7 +49,7 @@ The release supports:
 - macOS AMD64
 - macOS ARM64
 
-See the [release notes](changelog/v0.1.0.md) for user-facing changes and
+See the [release notes](changelog/v0.1.1.md) for user-facing changes and
 upgrade notes.
 
 ## Install
@@ -73,13 +73,13 @@ for deployment requirements and first-time system setup.
 ## Manual Download
 
 Release assets are available from [GitHub Releases](https://github.com/coffeehc/xagent-releases/releases).
-The `v0.1.0` platform packages are:
+The `v0.1.1` platform packages are:
 
 ```text
-xagent-v0.1.0-linux-amd64.tar.gz
-xagent-v0.1.0-linux-arm64.tar.gz
-xagent-v0.1.0-darwin-amd64.tar.gz
-xagent-v0.1.0-darwin-arm64.tar.gz
+xagent-v0.1.1-linux-amd64.tar.gz
+xagent-v0.1.1-linux-arm64.tar.gz
+xagent-v0.1.1-darwin-amd64.tar.gz
+xagent-v0.1.1-darwin-arm64.tar.gz
 ```
 
 The release also provides:

@@ -4,7 +4,7 @@
 
 本仓库用于发布 xAgent Server 官方二进制版本，仅包含发布包、校验文件、版本元数据和授权文件，不包含 xAgent 源代码。
 
-当前版本：[xAgent v0.1.0](https://github.com/coffeehc/xagent-releases/releases/tag/v0.1.0)
+当前版本：[xAgent v0.1.1](https://github.com/coffeehc/xagent-releases/releases/tag/v0.1.1)
 
 使用文档：
 
@@ -21,16 +21,16 @@ xAgent 既是员工统一使用 AI 的入口，也是企业统一管理 AI 的�
 
 ![xAgent 仪表板](assets/xagent-dashboard-zh.webp)
 
-## xAgent v0.1.0
+## xAgent v0.1.1
 
 本版本重点更新：
 
-- 接入 XUI 4.2.18 与森林绿配色，统一管理页面和会话工作区。
-- 完善虚拟团队创建、成员会话、共享资料、经理委托及团队整体归档。
-- 增加长期闲置会话自动归档，改善任务、工具调用、审批状态及索引展示。
-- 统一 Web/桌面 Cookie 会话生命周期，加固密钥占位符与凭证边界。
-- 优化输入批次恢复、MCP 连接与取消、HTTP 首字节等待及首屏资源加载。
-- 本次发布 Server 0.1.0，独立 AgentPlugin、桌面客户端和运行时资源包保持各自版本。
+- 改善会话恢复，自动等待重试，并支持随时停止或继续。
+- 模型配置保存时自动测试连接，新模型默认最大输出为 16K，可按需修改。
+- 加快登录后的会话列表加载，改善长会话页面流畅度。
+- 清晰区分审批审计结果，新增触发器执行历史。
+- 统一业务表格列宽调节、固定操作列及圆形图标背景。
+- 本次发布 Server 0.1.1，独立 AgentPlugin、桌面客户端和运行时资源包保持各自版本。
 
 支持的平台：
 
@@ -39,7 +39,7 @@ xAgent 既是员工统一使用 AI 的入口，也是企业统一管理 AI 的�
 - macOS AMD64
 - macOS ARM64
 
-完整功能变化和升级说明见[本版更新日志](changelog/v0.1.0.md)。
+完整功能变化和升级说明见[本版更新日志](changelog/v0.1.1.md)。
 
 ## 安装
 
@@ -55,13 +55,13 @@ curl -fsSL https://downloads.xagent.xiagaogao.com/scripts/install.sh | bash
 
 ## 手动下载
 
-发布文件可从 [GitHub Releases](https://github.com/coffeehc/xagent-releases/releases) 下载。`v0.1.0` 提供以下平台包：
+发布文件可从 [GitHub Releases](https://github.com/coffeehc/xagent-releases/releases) 下载。`v0.1.1` 提供以下平台包：
 
 ```text
-xagent-v0.1.0-linux-amd64.tar.gz
-xagent-v0.1.0-linux-arm64.tar.gz
-xagent-v0.1.0-darwin-amd64.tar.gz
-xagent-v0.1.0-darwin-arm64.tar.gz
+xagent-v0.1.1-linux-amd64.tar.gz
+xagent-v0.1.1-linux-arm64.tar.gz
+xagent-v0.1.1-darwin-amd64.tar.gz
+xagent-v0.1.1-darwin-arm64.tar.gz
 ```
 
 Release 同时提供：
