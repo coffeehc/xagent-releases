@@ -40,6 +40,7 @@ This release focuses on:
 - Faster session-list loading after sign-in and improved long-conversation responsiveness.
 - Clearer approval audit results and trigger execution history.
 - Consistent resizable data columns, fixed action columns, and circular icon backgrounds.
+- Additional fixes for startup after upgrading, session waits, and theme colors.
 - Server 0.1.1 only; AgentPlugins, the desktop client, and runtime assets keep independent versions.
 
 The release supports:
